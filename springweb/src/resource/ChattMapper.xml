@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="springweb.a04_chat.A03_ChatDao">
+	<resultMap type="chatt" id="chattMap" />
+	<resultMap type="String" id="strMap" />
+
+	<insert id="insertChat" parameterType="chatt" >
+		insert into chatt values(0,#{name},'Y',#{chgroup}) 
+	</insert>
+	<insert id="logoutChat"  parameterType="chatt" >
+		update chatt
+		set islogin='N'
+		where name=#{name}
+	</insert>
+	<select id="getGroup"  resultMap="strMap"  
+		 parameterType="String">
+		select name
+		from chatt
+		where group=(select group from chatt where name=#{value})
+	</select>
+	<select id="getCurrLogin"  resultMap="strMap" >
+		select name
+		from chatt
+		where islogin='Y'
+	</select>
+	
+	
+</mapper>	

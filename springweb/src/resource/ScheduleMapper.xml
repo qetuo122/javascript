@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- 
+//	springweb.a03_mvc.a03_dao.B04_ScheduleDao
+	public ArrayList<Schedule> schelist();
+	public void insert(Schedule insert);
+		private int no;
+	private int refno;
+	private String content;
+	private String fromDate;
+	private String toDate;
+	private String manager;
+ -->
+<mapper namespace="springweb.a03_mvc.a03_dao.B04_ScheduleDao">
+	<resultMap type="schedule" id="schMap" />
+	 
+	<select id="schelist"  resultMap="schMap">
+		SELECT level, no, refno, content, 
+			to_char(fromDate,'yyyy-MM-dd') fromDate,
+			to_char(toDate,'yyyy-MM-dd') toDate,
+			a.manager
+		FROM schedule a
+		WHERE 1=1
+		start with refno=0
+		connect by prior no = refno
+	</select>
+	<!--  	private String fromDate;
+	private String toDate;
+	private String manager;
+	 -->
+	<insert id="insert" parameterType="schedule" >
+		insert into schedule 
+		values(sch_seq.nextval,#{refno},#{content},
+				to_date(#{fromDate},'YYYY-MM-DD'),
+				to_date(#{toDate},'YYYY-MM-DD'),#{manager})
+	</insert>
+	
+	
+</mapper>	

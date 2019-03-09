@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="springweb.b01_calendar.A03_CalendarDao">
+
+
+<!--  ArrayList<Calendar> list() 
+	start가 내장된 키워드라 begin으로 바꾸고 start라는 setStart에 할당.
+-->
+	<resultMap type="cal" id="calMap">
+		<result column="begin" property="start"/>
+	</resultMap>
+	<select id="list" resultMap="calMap" 
+			parameterType="cal">
+		SELECT id, title, begin, end, url, content 
+		FROM calendar
+	</select>
+ 	<insert id="insert" parameterType="cal">
+ 		insert into calendar values( cal_seq.nextval, #{title},#{start},#{end}, null, #{content} )
+ 	</insert>
+ 	<update id="update" parameterType="cal">
+		update calendar
+		set title=#{title},
+		begin=#{start},
+		end = #{end},
+		content = #{content}
+		where id=#{id}
+ 	</update>
+ 	<delete id="delete" parameterType="int">
+ 		delete from calendar
+ 		where id=#{id}
+ 	</delete>	
+
+</mapper>	

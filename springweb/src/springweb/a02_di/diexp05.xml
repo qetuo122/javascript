@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- spring에서 쓰이는 객체들을 선언.. -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:task="http://www.springframework.org/schema/task" 
+    xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xmlns:util="http://www.springframework.org/schema/util"
+	 xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.0.xsd
+  		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd     
+        http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util-4.0.xsd
+   		http://www.springframework.org/schema/websocket
+		http://www.springframework.org/schema/websocket/spring-websocket.xsd
+       http://www.springframework.org/schema/task
+       http://www.springframework.org/schema/task/spring-task.xsd" >
+<!-- 
+autowire: 스프링의 객체 간에 자동으로 객체를 할당처리하는 것을 말한다.
+이 autowire 기능으로 스프링에서 new XXX()가 사라진다.
+명시적으로 해당 객체를 할당하지 않더라도 자동으로 객체끼리 할당 처리는 것을
+말해서, 보다 소스를 간편하게 처리한다.
+1. 속성값
+	1) byName : 참조할 참조변수와 호출하는 메서드에 setXXX()에서
+	XXX부분이 동일할 때, 자동할당 처리된다..
+
+ -->     
+ 	<bean id="woman" class="springweb.z01_vo.Woman" 
+ 		p:name="이정희" p:favFood="오렌지" />
+ 		<!-- autowire byName으로 설정되어 있으면..
+ 			setWoman(Woman w) 이 메서드로 정의 되어 있으면,
+ 			자동으로 할당이 된다.
+ 		 -->
+ 	<bean id="m01" class="springweb.z01_vo.Man" 
+ 		p:name="김철수" p:age="25" autowire="byName" />	
+ 	<bean id="product" class="springweb.z01_vo.Product" 
+ 		p:name="사과" p:price="3000" p:cnt="5" />
+ 	<bean id="mart01" class="springweb.z01_vo.Mart"	
+ 		p:name="KG" autowire="byName" />	
+<!-- 
+	2) byType : 생성된 객체의 참조변수가 해당 객체이면 자동할당되는 것을 말한다.
+	3) constructor : 메서드가 아닌 생성자로 해당 객체의 type이 있으면 자동할당 된다.
+//springweb.z01_vo.duckworld.Duck
+//springweb.z01_vo.duckworld.LakeFlying
+확인예제..
+SoundWay 인터페이스 설정  void sound()
+NormalSound 클래스  꽥꽥소리를 내다..
+Duck에서 자동으로 type으로 설정하여..
+메서드 호출하세요.
+
+ -->
+ <!-- 클래스 안에서 annotation을 처리가능 하게 해주는 설정.. --> 
+  	<context:annotation-config/>		
+ 	<bean class="springweb.z01_vo.duckworld.LakeFlying"/>
+ 	<bean id="duck01" class="springweb.z01_vo.duckworld.Duck"
+ 		p:kind="청둥오리" autowire="byType" />
+ 	<bean id="duck02" class="springweb.z01_vo.duckworld.AnnoDuck"/>	
+ 
+   
+       
+</beans>

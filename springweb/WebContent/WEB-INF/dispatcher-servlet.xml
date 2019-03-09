@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- spring에서 쓰이는 객체들을 선언.. -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:task="http://www.springframework.org/schema/task" 
+    xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xmlns:util="http://www.springframework.org/schema/util"
+	 xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.0.xsd
+  		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd     
+        http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util-4.0.xsd
+   		http://www.springframework.org/schema/websocket
+		http://www.springframework.org/schema/websocket/spring-websocket.xsd
+       http://www.springframework.org/schema/task
+       http://www.springframework.org/schema/task/spring-task.xsd" >
+      <context:annotation-config/>
+      <!-- annotation이 설정된 클래스만 객체로 등록 처리..
+      1. Controller, Service, Respository만 등록 처리..
+       -->
+      <context:component-scan base-package="springweb">
+      	<context:include-filter type="annotation" 
+      	expression="org.springframework.stereotype.Controller"/>
+      	<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+      	<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+      </context:component-scan>
+      <!-- 소켙통신을 이름과 url을 매핑 처리..
+      1. mvc default-servlet-handler 선언.
+      2. websocket:handlers를 통해 url과 호출 handler 매핑.
+       -->
+      <!-- 웹  소켙통신을 할 수 있는 모듈  기본 handlermapping 클래스와
+      adapter, 선언.. -->
+      <bean id="annotationUrlMapping" 
+      class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
+      <bean id="controllerClassNameHandlerMapping" 
+      class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
+       <bean id="annotationMethodHandlerAdapter" 
+      class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>
+      <websocket:handlers >
+      	<websocket:mapping handler="chatHandler" path="/chat-ws.do"/>
+      	<websocket:mapping handler="chatHandler2" path="/chat-ws2.do"/>
+      </websocket:handlers>
+       <mvc:default-servlet-handler/>     
+      
+      
+      <!-- 공통 설정 정보 위치 지정..: context:property-placeholder 
+      	classpath는 현재 src로 설정되어,,
+      		classpath:/resource/properties/info 파일로 공통 정보가 key value
+      		값으로 설정되어 있다.
+      -->
+      <context:property-placeholder 
+      	location="classpath:/resource/properties/info"/>
+      
+      <!-- 
+      spring의 view를 선언하기..
+      1. .jsp
+      2. bean ajax json(spring 지원): ArrayList  json  한글 엔코  view단
+      3. bean 파일 업로드, 다운로드.
+      4. bean excel, pdf, ..
+      5. bean 소켙통신 
+      
+       -->
+       <!-- 
+       controller에서 return  호출하는 view가  jsp호출하는 것인지? bean으로 등록된
+       view를 호출할 것인지를 구분기준을 설정하는 viewResolver가 필요..
+       1. dispatcher에   bean이 id값으로 있으면  그 빈을 viewer쓰고,
+       2. 없으면 모두 다 jsp로 설정한다.
+        -->
+       <bean id="bnViewResolver" 
+       class="org.springframework.web.servlet.view.BeanNameViewResolver">
+       		<property name="order" value="0"/>
+       </bean>
+       <!-- ArrayList 를 json데이터로 변경.. -->
+       <bean id="pageJsonReport" 
+       		class="org.springframework.web.servlet.view.json.MappingJacksonJsonView">
+       		<property name="contentType" value="text/html;charset=utf-8"/>
+       </bean>
+       <!-- file upload viewResolver -->
+       <bean id="multipartResolver"
+       	 class = "org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+       <!-- file download Viewer -->
+       <bean id="download" class="springweb.z02_util.DownloadViewer"/>
+       <!-- excel download viewer -->
+       <bean id="exlEmp" class="springweb.z02_util.EmpXlsViewer" />
+       <!-- pdf download viewer -->
+       <bean id="pdfEmp" class="springweb.z02_util.EmpPdfViewer"/>
+       
+       <!-- viewResolver에서 view를 선언하는 규칙..
+       bnViewResolver에서 우선 순위를 order를 "0"으로 함으로
+       1. bean으로 id값이 있으면 그 view 먼저 호출하고,
+  			1) 파일다운로드 하거나 업로드하고
+  			2) json 데이터를 호출
+       		3) 엑셀다운로드 chatting 등등..
+       2. dispatcher-servlet에 정의된 id가 없는 view를 호출했을 때는
+       	  접두어(prefix)로 WEB-INF/view/를 붙이고,\
+       	  접미어(suffix)로  .jsp를 붙여서, 실제 jsp 파일을 화면에 호출하게 한다.
+       	  " WEB-INF/view/a01_basic/a01_startView.jsp"
+       	  
+       
+       
+        -->
+      <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+      	<property name="prefix" value="WEB-INF/view/"/>
+      	<!--view단을 호출할 때, 자동을 .jsp가 호출 될 수 있게 처리한다. -->
+      	<property name="suffix" value=".jsp"/>
+      	<property name="order" value="1"/>
+      </bean> 
+      <!-- DB연결 설정 : connection pool - web server가 
+      DB를 접속할 때, 효율적으로 하기위한 추상적인 개념 처리..
+      1. destory-method: 해당 내용을 처리한 후, 자원해제를 위한 메서드 호출..
+       -->
+      <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+      	destroy-method="close"	
+      	>
+      	<!-- db 정보를 처리.. -->
+      	<property name="driverClassName" value="${driver}"/>
+      	<property name="url"  value="${db_ip}"/>
+      	<property name="username"  value="${name}"/>
+      	<property name="password"  value="${pass}"/>
+      </bean>
+      <!-- Mybatis 설정 처리..
+      1. DB연결된 자원을 연결처리..
+      2. Mybatis와 설정된 정보로 연결처리..
+      3. default DAO 패키지를 설정처리..
+       -->
+      <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+      		<property name="dataSource" ref="dataSource"/>
+      		<property name="configLocation" 
+      		value="classpath:resource/mybatis.Spring.xml"/>
+      </bean> 
+      <!-- 
+      	자동으로 객체가 생성된 DAO단을 등록한다..
+      	1. dao 인터페이스가 있는 패키지를 등록 한다.
+      	2. 여러 패키지는 , 로 구분하여 추가 등록하면 된다..
+       -->
+      <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+      	<property name="basePackage" value="springweb.a03_mvc.a03_dao,springweb.b01_calendar,springweb.b03_gant,springweb.a04_chat"/>
+      </bean>
+      <!-- 
+      	다국어 처리 프로세스
+      	1. src하위에 특정한 폴드를 만들어 @@.properties 파일 을 
+      		기준파일, 언어1파일, 언어2파일....을 만든다.
+      	2. dispatcher-servlet.xml에 위에 설정된 파일 정보를 등록 한다.
+      		org.springframework.context.support.ResourceBundleMessageSource
+      		bean 하위에 basenames메서드로  설정한 언어 파일을 list객체로 등록 처리.
+      	3. 다국어 버튼을 클릭시, 자동으로 처리되게 하기 위해.
+      		localeResolver 빈 클래스 등록..
+      		org.springframework.web.servlet.i18n.SessionLocaleResolver
+      	4. view단 (jsp)
+      		spring tag lib 사용..
+      			spring:msg  code="msg.properties에서 등록한 코드명"
+      	5. 브라우저에 고급/언어 선택 옵션..		
+       -->
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<!-- src 기준을 해당 main properties 설정 -->
+				<value>resource.message.msg</value>
+			</list>
+		</property>
+	</bean>   
+	<!-- 다국어 버튼으로 자동변경처리. -->
+	<bean id="localeResolver"
+	 class="org.springframework.web.servlet.i18n.SessionLocaleResolver"/>   
+    <!-- 메일 전송 모듈 선언.
+    JavaMailSenderImple에서 지정하는 메서드.
+    1. Host : 해당 메일서버 IP나 domain 주소  ex) smtp.gmail.com
+    2. port : 사용할 port
+    3. defaultEncoding : 메일 한글 encoding.
+    4. javaMailProperties : 자바메일 속성들 지정.
+    5. username : 메일계정.
+    6. password : 비밀번호.
+     -->
+     <bean id="mailSender" 
+     class="org.springframework.mail.javamail.JavaMailSenderImpl">
+     	<property name="host" value="${host}"/>
+     	<property name="port" value="${port}"/>
+     	<property name="username" value="zelratole@gmail.com" />
+     	<property name="password" value="" />
+     	<property name="javaMailProperties">
+     		<props>
+     			<prop key="mail.smtp.auth">true</prop>
+     			<prop key="mail.smtp.starttls.enable">true</prop>
+     		</props>
+     	</property>
+     </bean>  
+     <!-- 
+     AOP 처리 순서..
+     1. advice 객체 등록 : 어떤 프로그램을 특정한 시점에서 수행할 지를 지정..
+     2. aspect(관점지향 프로그램)
+     	1) 특정한 호출시점에서 프로그램을 수행 처리..
+      -->
+     <!-- advice 등록(무엇이 처리) -->
+     <bean id="profiler" class="springweb.a06_aop.A01_Profiler"/>
+     <!-- aspect 등록(어떤 시점에서 처리) -->
+     <aop:config>
+     	<aop:aspect id="traceAspect" ref="profiler">
+     		<!-- 시점 
+     		execution(public * springweb.a03_mvc.a03_dao..*(..))
+     		1. springweb.a03_mvc.a03_dao 하위 모든 객체와 모든 메서드가 수행할 때,
+     		2. return은 상관없은(*)
+     		3. ..* : 하위 객체에 모든 메서드
+     		4. (..) : parameter 값도 상관없다. 
+     		-->
+     		<aop:pointcut expression="execution(public * springweb.a03_mvc.a03_dao..*(..))" id="publicMethod"/>
+     		<!-- advice의 메서드 지정 : advice 하위에 trace() 수행시-->
+     		<aop:around method="trace" pointcut-ref="publicMethod"/>
+     	</aop:aspect>  
+     </aop:config>
+     <!-- 
+     	Controller 단이 호출 될 때, 수행할 내용을 A02_Profiler
+     	만들고 등록하여 처리되게 하세요..
+     
+      -->
+    
+	<bean id="logProcessor" class="springweb.c01_batch.LogProcessor" />
+	<!-- 
+	<task:executor id="executor" keep-alive="10" pool-size="10-20"
+		queue-capacity="10" rejection-policy="ABORT" />
+	<bean id="processor" class="springweb.c01_batch.Processor">
+		<property name="taskExecutor" ref="executor" />
+	</bean>
+	 -->
+	<!-- 
+	<bean id="messageSender" class="springweb.c01_batch.MessageSender" />
+	
+	<bean id="logCollector" class="springweb.c01_batch.LogCollector" /> 	
+	<task:scheduler id="scheduler" pool-size="4" />
+	<task:scheduled-tasks scheduler="scheduler">
+		<task:scheduled ref="logCollector" method="collect"
+			cron="*/5 * * * * *" />
+	</task:scheduled-tasks>
+ 	<task:annotation-driven executor="executor" scheduler="scheduler" 
+ 		proxy-target-class="false"/>	
+	 -->
+</beans>

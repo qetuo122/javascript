@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- mybatis 설정관련 파일..
+1. VO 클래스 선언.
+2. 모듈별 sql 설정 파일 위치 지정..
+ -->
+ <configuration>
+ 	<typeAliases>
+ 		<typeAlias alias="emp" type="springweb.z01_vo.Emp"/>
+ 		<typeAlias alias="dept" type="springweb.z01_vo.Dept"/>
+ 		<typeAlias alias="cal" type="springweb.z01_vo.Calendar"/>
+ 		<typeAlias alias="board" type="springweb.z01_vo.Board"/>
+ 		<typeAlias alias="bsch" type="springweb.z01_vo.BoardSch"/>
+ 		<typeAlias alias="exambank" type="springweb.z01_vo.Exambank"/>
+ 		<typeAlias alias="hira" type="springweb.z01_vo.Hira"/>
+ 		<typeAlias alias="schedule" type="springweb.z01_vo.Schedule"/>
+ 		<typeAlias alias="chatt" type="springweb.a04_chat.Chatt"/>
+ 	</typeAliases>
+ 	<mappers>
+ 		<mapper resource="resource/EmpMapper.xml"/>
+ 		<mapper resource="resource/CalMapper.xml"/>
+ 		<mapper resource="resource/boardMapper.xml"/>
+ 		<mapper resource="resource/ExamMapper.xml"/>
+ 		<mapper resource="resource/HiraMapper.xml"/>
+ 		<mapper resource="resource/ScheduleMapper.xml"/>
+ 		<mapper resource="resource/ChattMapper.xml"/>
+ 	</mappers>
+ </configuration>
