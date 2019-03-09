@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Colorbox</title>
+    <link rel="stylesheet" href="colorbox.css" />
+    <style>
+    #images { overflow: hidden; }
+    .flickr_image { float: left; }
+    .flickr_image>  img {
+        width: 200px; height: 120px;
+        float: left;
+    }
+</style>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="jquery.colorbox.js"></script>
+<script>
+    $(document).ready(function () {
+		// 1. colorbox 기본 활용 방법..
+		//	1) $("객체").colorbox({속성:속성값,.....})
+		//  2) 속성 
+		//     transition : 이미지생성방식, fade,
+		//     opacity : 투명도,   onOpen:함수 실행시 처리할 이벤트..
+		//     onClosed : 닫힐때 실행할 이벤트,  inline: 내부요소..
+		//  3) 전역 메서드
+		//     next(): 그룹에서 다음 내용 호출, prev() : 이전 내용 호출.
+		//     close()/resize()/remove()
+		$("#colorbox").colorbox({
+			inline:true,
+			width:550
+		});
+    });
+</script>
+</head>
+<body>
+    <h1>jQuery Colorbox</h1>
+    <a id="colorbox" href="#dialog">Dialog with Colorbox</a>
+
+    <!-- 다이얼로그 -->
+    <div id="dialogs" style="display:none;">
+        <div id="dialog">
+            <h1>Auto OPEN FancyBox</h1>
+            <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+    </div>
+</body>
+</html>

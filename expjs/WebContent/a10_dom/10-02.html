@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>index</title>
+    <script>
+    
+ 	// 화면어세 </html>까지 로딩 된 후에 함수가 처리
+        window.onload = function () {
+        				// tag가 id값으로 되어 있을때
+            var header = document.getElementById('header');
+            alert(header.innerHTML);
+            
+            // header내용 변경
+            header.innerHTML = "안녕하세요";
+        };
+    </script>
+</head>
+<body>
+    <h1 id="header">HEADER</h1>
+</body>
+</html>

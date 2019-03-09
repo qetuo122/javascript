@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">
+    <script>
+        // 배열을 생성합니다.
+        var array = [0, 1];
+        
+        // 배열은 index로 추가,
+        array[2] = 5;
+        array[3] = 8;
+        //alert(array);
+        
+        // 배열에 요소를 추가합니다.(push()로 추가)
+        // push()는 배열의 가장 마지막으로 추가된다.
+        /* array.push(2);
+        array.push(3);
+        array.push(4); */
+        // 출력합니다.
+        
+        //배열명.pop()는 마지막 요소를 return하면서 배열에서 제거처리한다.
+        /* alert("현재 배열의 내용 : " + array);
+        alert("삭제할 마지막 요소 : " + array.pop());
+        alert("삭제할 마지막 요소 : " + array.pop());
+        alert("삭제할 마지막 요소 : " + array.pop());
+        alert(array); */
+        
+        /* 
+        
+        	학생이름 배열을 초기에 홍길동, 김길동, 신길동으로 설정하고 index로 이름 2개 추가하여 출력하고
+        	push를 통해서 이름 1개를 추가하여 출력하고
+        	pop을 2번 호출하여 데이터를 2개 삭제한 후 화면에 마지막 남은 학생 이름을 출력하세요.
+        
+        */
+        
+        var student = ["홍길동", "김길동", "신길동"];
+        student[3] = "고길동";
+        student[4] = "황길동";
+        alert("index로 데이터 추가 : " + student);
+        student.push("오길동");
+        alert("push로 데이터 추가 : " + student);
+        
+        student.pop();
+        student.pop();
+        alert("pop으로 데이터 제거 후 남은 배열 : " + student);
+        
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

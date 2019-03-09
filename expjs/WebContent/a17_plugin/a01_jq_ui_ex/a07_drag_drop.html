@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery UI Basic</title>
+    <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.10.3.custom.css" />
+    <style>
+        * { margin: 0px; padding: 0px; } 
+        body { font-size: 62.5%; }
+
+        .item {margin: 3px;padding: 5px;}
+        .item > img { width: 100px; height: 100px;}
+
+        #wrap { overflow: hidden; }
+        #wrap > div { float: left; }
+        #dock { position:fixed; min-height: 120px; width: 100%; bottom: 0px; z-index: 1;}
+        #dock > div { float: right; }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(document).ready(function () {
+            	// 1. 문서객체 icon을 #wrap에 할당
+            	//	0~20까지 #wrap에 할당처리
+            	for(var i = 0; i < 21; i++){
+	            	var icon = "<div class = 'ui-widget-content ui-coner-all item'>";
+    	        	icon += "<img src='" + i + ".png'/>";
+        	    	icon += "</div>";
+            		$("#wrap").append(icon);
+            	}
+            	// 2. draggable() 플러그인 처리
+            	// 	draggable()을 통해 각각의 아이콘이 움직이게 처리
+            	$("#wrap > div").draggable({
+            		// 옵션설정 div의 layout의 최상단 옵션 설정
+            		// 드래깅 할 경우 복사처리 helper:clone
+            		// scroll : 스크롤시 화면에 scrolling처리 true/false
+            		zIndex:100,
+            		helper:"clone",
+            		scroll : false
+            		
+            	});
+            	// 3.droppable() 플러그인 처리
+            	//	특정한 객체가 들어왔을때 해당내용을 추가하게 처리
+            	//	1) accept : 지정한객체
+            	//	2) drop:함수 드라핑했을때 처리할 내용
+            	$('#dock').droppable({
+            		accept:"#wrap>div",
+            		drop:function(event, ui){
+            			alert("드랍되었습니다.");
+            			$("#dock").append($(ui.draggable));
+            		}
+            	});
+            	 $("body").droppable({
+            		accept:"#dock>div",
+            		drop:function(event, ui){
+            			alert("드랍되었습니다.");
+            			$("#wrap").append($(ui.draggable));
+            		}
+            	}); 
+
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="wrap">
+
+    </div>
+    <div id="dock" class="ui-state-error">
+
+    </div>
+</body>
+</html>

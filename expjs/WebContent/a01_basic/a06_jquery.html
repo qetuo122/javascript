@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src = "https://code.jquery.com/jquery-3.3.1.js" type="text/javascript"></script>
+<script type="text/javascript">
+	//body에 있는 모든 요소들을 메모리에 올린 후 함수를 시작
+	$(document).ready(function(){
+		$("h1").html("jquery 시작");
+		// 이벤트
+		$('h1').on("click", function(){
+			//$(this) : 대상이 여러개일 경우 이벤트가 발생한 바로 그 객체를 지칭
+			$(this).css("background-color","red");
+			$(this).html("클릭되었습니다.");
+		});
+	});
+</script>
+</head>
+<body>
+	<h1></h1>
+	<h1></h1>
+	<h1></h1>
+	<h1></h1>
+	<h1></h1>
+</body>
+</html>

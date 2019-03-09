@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Index</title>
+    <script>
+        window.onload = function () {
+            // 문서 객체를 가져옵니다.
+            var headers = document.getElementsByTagName('h1');
+            // tagNAme은 기본적으로 배열로 인식
+            
+            var fruits = ["사과","바나나"];
+            for (var i = 0; i < headers.length; i++) {
+                // 문서 객체의 속성을 변경합니다.
+                headers[i].innerHTML = fruits[i];
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1>Header</h1>
+    <h1>Header</h1>
+</body>
+</html>

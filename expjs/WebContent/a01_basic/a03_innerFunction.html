@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/* 
+	숫자형 변환 처리 내장 함수
+	parseInt("숫자형문자열") ==> 정수
+	parseFloat("실수형문자열") ==> 실수
+	parseXXX() : 는 숫자로 시작하여 단위 문자열 붙어도 숫자만 추출하여 처리하여 준다.
+	
+*/
+	var numStr01 = prompt("첫번쨰 숫자를 입력","10");
+	var numStr02 = prompt("두번쨰 숫자를 입력","10");
+	var tot01 = numStr01 + numStr02;
+	document.write("<h2>" + numStr01 + " + " + numStr02 + " = " + tot01 + "</h2>");
+	
+	var num01 = parseInt(prompt("첫번쨰 숫자를 입력","10원"));
+	var num02 = parseInt(prompt("두번쨰 숫자를 입력","10.5원"));
+	var tot02 = num01 + num02;
+	document.write("<h2>" + num01 + " + " + num02 + " = " + tot02 + "</h2>");
+	
+	//Number("정수나 실수형 문자열") ==> 정수나 실수로 변환
+	var num03 = Number("25.5");
+	var num04 = Number("27");
+	var tot03 = num03 + num04;
+	document.write("<h2>" + num03 + " + " + num04 + " = " + tot03 + "</h2>");
+</script>
+</head>
+<body>
+
+</body>
+</html>

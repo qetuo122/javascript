@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">
+    <script>
+        // 함수를 생성합니다.
+        function sumAll() {
+            // 출력합니다.
+            			//[1,2,3,4,5,6,7,8,9]
+            alert(typeof (arguments) + ' : ' + arguments.length);
+            for(var i in arguments){
+            	document.write(arguments[i] + " , ");
+            }
+        }
+        // 함수를 호출합니다.
+        // 1. 가변인자
+        // 자바스크립트에서는 입력 매개변수를 선언하지 않더라도 입력값을 호출하면, arguments에서 입력 parameter갯수만큼
+        // 배열로 받는다.
+        sumAll(1, 2, 3, 4, 5, 6, 7, 8, 9);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>안녕하세요</h1>
+	아이디 : <input type = "text" name = "id" value = "himan">
+</body>
+<script type="text/javascript">
+	// DOM(docoment object model)로 화면에 있는 tag를 객체로 인식하여 처리하게 해준다.
+	var h1Obj = document.querySelector("h1");
+	// .innerHTML : 내부에 있는 label 내용을 가져온다.
+	alert("내용 : " + h1Obj.innerHTML);
+	h1Obj.innerHTML = "반갑습니다. 감사합니다.";
+	
+	var idObj = document.querySelector("input[name=id]");
+	alert("아이디의 값 : " + idObj.value);
+	idObj.value = "hiGirl";
+</script>
+</html>

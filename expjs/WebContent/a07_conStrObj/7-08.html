@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">
+    <script>
+        function Student(name, korean, math, english, science) {
+            this.이름 = name;
+            this.국어 = korean;
+            this.수학 = math;
+            this.영어 = english;
+            this.과학 = science;
+        }
+        //Student.prototype.메서드명 = 함수선언
+        // 객체 메모리에 배열이나 여러 참조변수를 통해서 따로 메모리를 사용하지 않아도 되기에
+        // 공통처리 메서드는 prototype을 선언해주는 것이 메모리 효율에 유리하다.
+        Student.prototype.getSum = function () { };
+        Student.prototype.getAverage = function () { };
+        Student.prototype.toString = function () { };
+    </script>
+</head>
+<body>
+
+</body>
+</html>

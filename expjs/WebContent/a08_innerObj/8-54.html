@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">
+    <script>
+        // 변수를 선언합니다.
+        var object = {
+            name: '윤인성',
+            region: '서울특별시'
+        };
+        
+        // 서버로 넘기기위해 제이슨문자열로 변환시킨 문자열을 서버로부터 다시 받을 때 다시 객체로 변환시켜줌
+        var copy = JSON.parse(JSON.stringify(object));
+        // 출력합니다.
+        alert(copy.name + ' : ' + copy.region);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

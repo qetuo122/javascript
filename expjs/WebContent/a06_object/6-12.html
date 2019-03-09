@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">
+    <script>
+        // 변수를 선언합니다.
+        var student = {
+            이름: '연하진',
+            국어: 92, 수학: 98,
+            영어: 96, 과학: 98
+        };
+        // 출력합니다.
+        var output = '';
+        
+        //with(객체){ 속성 - with 블럭 안에서 해당 객체의 속성을 바로 활용할 수 있다.}
+        with (student) {
+            output += '이름: ' + 이름 + '\n';
+            output += '국어: ' + 국어 + '\n';
+            output += '수학: ' + 수학 + '\n';
+            output += '영어: ' + 영어 + '\n';
+            output += '과학: ' + 과학 + '\n';
+            output += '총점: ' + (국어 + 수학 + 영어 + 과학);
+        }
+        alert(output);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
