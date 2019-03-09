@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">
+    <script>
+        // 반복문
+        // break : 조건문과 함께 반복의 중단.
+        // continue : 해당 반복 step만 중단 계속 처리..
+        
+        
+        for (var i = 0; true; i++) {
+            alert(i + '번째 반복문입니다.');
+            // 진행 여부를 물어봅니다.
+            // 취소 클릭시, 중단 처리..
+            if (!confirm('계속하시겠습니까?')) {
+                break;
+            }
+        }
+        alert('프로그램 종료');
+    </script>
+</head>
+<body>
+
+</body>
+</html>

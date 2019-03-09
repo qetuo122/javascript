@@ -1,0 +1,100 @@
+안녕하세요! 박주연입니다.
+반갑습니다.
+저는 웹퍼블리셔입니다.
+자바스크립트 교육은 처음입니다.
+
+폴더 선택등에서 글자가 작은 경우 잘 안보일 때가 있습니다.
+이번수업에서 DOM control과 비동기처리(Ajax), ES6를 배우는데 중점을 두고자 합니다.
+
+
+#html
+
+1. html, head, body
+
+2. block type: <div></div> || inline type: <span></span>
+
+3. ul : 순서와 상관없는 리스트 || ol : 순서가 있는 리스트(넘버링이 됨)
+
+4. 하이퍼텍스트 링크 연결
+
+5. url
+
+6. rowspan 행? 열?의 갯수 합산시 사용 
+(colspan 과 헷갈리네요)
+
+7. 입력값을 받을 경로
+
+8. input에 대한 예시값 표시를 위해 사용
+
+9. radio : 중복선택불가 / checkbox : 중복선택가능
+
+10. iframe 호출용으로 사용
+
+11. text-transform : uppercase;
+
+12. table th, table td {border: 1px solid black;}
+
+13. float : left;
+
+14. margin : border 외부에 생기는 여백 || padding : border와 컨텐츠 내용 사이에 생기는 여백
+
+15. device size에  구애받지 않고 어떠한 기기에서도 동일한 컨텐츠 내용이 전달 될 수 있는 화면 디자인
+
+16. html 태그에 직접선언 / 외부 css 파일을 링크 / head 태그 내부에 style 태그로 선언하여  그 안에 작성
+
+17. tr:nth-child(odd) td{background-color: red;} || tr:nth-child(even) td{background-color: black;}  
+
+18. <source> , srcset
+
+19. image map을 이야기하시는 건가요? 문제 이해가 잘 안가네요.
+
+20. 공백(스페이스)
+
+// ==================================================
+
+#javascript
+1. <script src="외부파일경로/파일명.js"></script>
+
+2. console.log("출력할 내용");
+
+3. var person;
+
+4. var names = new Array();
+
+5. var title01 = document.getElementsByTagName(h1);
+
+6. break : 현재 로직 빠져나와 그대로 종료 || continue : 현재로직 뛰어넘고 다음 실행
+
+7. 
+
+8. el.innerText("변경할 내용");
+
+9. 
+
+10. 
+
+11.
+
+12. person.name; person.age; person.loc;
+
+13. 
+
+14.
+
+15.
+
+16.
+
+17.
+
+18.
+
+19.
+
+20.
+
+
+
+
+
+

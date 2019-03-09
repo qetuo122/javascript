@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/*  중첩조건 처리예제
+	1. 입력 데이터
+		1) 나이를 입력하세요 prompt
+		2) 여자 입니까? confirm() 확인 true, 취소 false
+	2. 4가지 해당 하는 내용에 처리..
+		1) 남자이면서 성인   : Man!!
+		2) 남자이면서 미성년자. : Boy!!
+		3) 여자이면 성인 : Lady!!
+		4) 여자이면 미성년자. : Girl!!
+ */	
+ // 1. 입력 값 처리..
+ 	var age = Number( prompt("나이를 입력하세요!", "0" ));
+	var isFemale = confirm("여자 입니까?");
+	document.write("<h1> 나이 :"+age+", 여자인지?:"+isFemale+"</h2>");
+	
+ // 2. 입력값을 조건에 따른 처리
+ // 	1) 나이가 20이상
+ //         1-1) 남자일때.
+ //         1-2) 여자일때.
+ //     2) 20세 미만일때.
+ //         2-1) 남자일때.
+ //         2-2) 여자일때.
+ 	if( age >= 20){
+ 		document.write("<h3>20세 이상</h3>");
+ 		if( isFemale ){
+ 			document.write("<h3>숙녀분 어서오세요</h3>");
+ 		}else{
+ 			document.write("<h3>신사분 어서오세요</h3>");
+ 		}
+ 	}else{
+ 		document.write("<h3>20세 미만</h3>");
+ 		if( isFemale ){
+ 			document.write("<h3>소녀는 성년이 아니라 접근이 안됩니다.</h3>");
+ 		}else{
+ 			document.write("<h3>소년는 성년이 아니라 접근이 안됩니다.</h3>");
+ 			
+ 		}
+ 	}
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

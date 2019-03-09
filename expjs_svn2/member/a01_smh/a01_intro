@@ -1,0 +1,46 @@
+안녕하세요 송명훈 입니다.
+저는 공부 하는 학생입니다.
+자바스크립트 경험은 있지만 다까먹었습니다. 거의 백지 상태입니다.
+
+기초부터 빠르게 진도를 나갔으면 좋을것같습니다.
+이번과정을 통해 다시 배우고 싶습니다.
+
+
+html 
+
+1.테그 기반이다
+2.<table>
+3.ui =유저인터페이스 
+4.하이퍼링크 다음 url 로 이동
+5.<style img="파일">
+7.from 테그의 action =submit
+9.체크박스는 여러게 선탣가능 레이디오는 여러게중 한개선택
+11.<table style color : black  board : 1px> 
+잘모르겠습니다.
+
+jacascript
+
+2.F12 로그로 확인한다
+3.person p =new person();
+4.var name[];
+6.브레이크는 먼춘다 컨티뉴는 안써봤지만 계속진행인것같습니다.
+7.alrt("")
+잘모르 겠습니다. 
+
+id <input type ="text" name ="id" >< <br>
+password <input type ="text" name="password"> <br>
+<input type="button" onclick="fun()">
+fun(){
+$이름으로 불러와서 
+제이슨 형식으로 바꾸고 
+A.jax방식으로 보낸후 콜백 fun()으로 받습니다 
+}
+
+
+
+진도 속도 ===> 적절
+예제 난이도 ==> 적절
+
+
+
+

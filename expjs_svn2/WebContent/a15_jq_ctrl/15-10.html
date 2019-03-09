@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">
+    <script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready(function () {
+        	// img가 여러개 배열인 경우,
+        	//    각 이미지의 넓을 값을 다르게 처리할 때..
+            $('img').attr('width', function (index) {
+            	// index의 값에 따라 넓을 다르게 처리..
+                return (index + 1) * 100;
+            });
+        });
+    </script>
+</head>
+<body>
+    <img src="Chrysanthemum.jpg" />
+    <img src="Desert.jpg" />
+    <img src="Hydrangeas.jpg" />
+</body>
+</html>

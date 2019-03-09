@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">
+    <script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready(function () {
+        	var imgs=["Chrysanthemum.jpg","Desert.jpg",
+        				"Hydrangeas.jpg","Jellyfish.jpg",
+        				"Koala.jpg","Lighthouse.jpg","Penguins.jpg"];
+            $('img').attr({
+            	src:function(index){
+            		// 각 속성값을 변경 처리..
+            		return imgs[index];
+            	},
+                width: function (index) {
+                    return (index + 1) * 100;
+                },
+                height: function (index){
+                	return (index+1)*100;	
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <img />
+    <img />
+    <img />
+    <img />
+    <img />
+    <img />
+</body>
+</html>

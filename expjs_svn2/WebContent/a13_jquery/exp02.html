@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+    <style>
+    	td{width:33%;height:33%;text-align:center;}
+    	img{width:90px;height:90px;}
+    </style>
+    <script>
+        $(document).ready(function () {
+			setInterval(function(){
+				playGame();
+			}, 1000);
+        });
+        function numbering(){
+        	alert("번호입력");
+        	// 1. td 객체 호출..
+ 			var td = $("td");
+        	// 2. .each(function(idex, item){})
+        	//    $("객체:eq(index)")
+        	/*
+        	$.each(td,function(index, item ){
+        		$(item).html(index+1);
+        	});
+        	*/
+        	for(var idx=0;idx<td.length;idx++){
+        		// $("td:eq(0)").html(0+1);
+        		$("td:eq("+idx+")").html(idx+1);
+        		// .eq(index)
+        		// $("td").eq(idx).html(idx+1);
+        	}
+        }
+        function playGame(){
+        	// 초기화..
+        	// $("td") : 전체 td를 지정. html("") : 전체 속성값으로 처리.
+        	$("td").html("");
+        	//alert("두더지 게임시작!");
+        	//# 1단계
+        	//1. td 호출..
+        	var tds = $("td");
+        	//2. 임의의 idx 값 가져오기.. 0 ~ 8
+        	//     Math.floor(Math.random()*9) : 0 ~ 8 
+        	var ranIdx = Math.floor(Math.random()*tds.length);
+        	//3. $("td").eq(임의 idx).html("두더지 출력")
+        	
+        	$("td").eq(ranIdx).html("<img src='img01.gif'>");
+        	//# 2단계
+        	//1. td 초기화..
+        	//# 3단계
+        	//1. setInterval의 이용해서 위에 내용이 1초마다 반복되어 나타나기.
+        	
+        }
+    </script>
+</head>
+<body>
+	<h1 onclick="numbering()">번호입력</h1>
+	<h1 onclick="playGame()">두더지게임시작</h1>
+	<table width="300" height="300" border>
+		<tr><td></td><td></td><td></td></tr>
+		<tr><td></td><td></td><td></td></tr>
+		<tr><td></td><td></td><td></td></tr>
+	</table>
+</body>
+</html>

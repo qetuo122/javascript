@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- 
+public ArrayList<Hireac> hiralist(String  s){}
+
+ -->
+<mapper namespace="springweb.a03_mvc.a03_dao.B03_HirachDao">
+	<resultMap type="hira" id="hiraMap" />
+	 
+	<select id="hiralist"  resultMap="hiraMap">
+		SELECT level, a.*
+		FROM hiretab a
+		WHERE 1=1
+		start with refno=0
+		connect by prior no = refno
+		order siblings by no desc
+	</select>
+	<!--  insert(Hira insert)
+	(hire_seq.nextval,5,'드론3')
+	 -->
+	<insert id="insert" parameterType="hira" >
+		insert into hiretab 
+		values(hire_seq.nextval,#{refno},#{show})
+	
+	</insert>
+	
+	
+</mapper>	

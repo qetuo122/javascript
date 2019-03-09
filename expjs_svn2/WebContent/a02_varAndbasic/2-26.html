@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">
+    <script>
+        window.onload = function () {
+            // 변수를 선언합니다.
+            // 문자열을 누적 처리할 때..
+            var list = '';
+            // 연산자를 사용합니다.
+            list += '<ul>';
+            list += '    <li>Hello</li>';
+            list += '    <li>JavaScript..!</li>';
+            list += '</ul>';
+            // 문서에 출력합니다.
+            // document.body.innerHTML : 화면에 출력할 html
+            document.body.innerHTML = list;
+            var h1 = "<h1>안녕하세요</h1>";
+            // document.body.innerHTML+= 기존 화면에서 추가적으로
+            //  누적 처리
+            document.body.innerHTML+=h1;
+        };
+    </script>
+</head>
+<body>
+
+</body>
+</html>

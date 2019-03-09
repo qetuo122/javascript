@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>index</title>
+    <script>
+    	// window.onload = 함수
+    	//   화면에서 </html>까지 로딩된 후에 처리할 함수 지정..
+        window.onload = function () {
+    		// tag가  id="header"로 되어 있는 때..
+    		/// document.getElementById("아이디명")
+            var header = document.getElementById('header');
+            // header에 레이블에 있는 내용 출력..
+            alert(header.innerHTML);
+            // header.innerHTML ="변경할 문자열";
+            header.innerHTML="안녕하세요";
+        };
+    </script>
+</head>
+<body>
+    <h1 id="header">HEADER</h1>
+</body>
+</html>

@@ -1,0 +1,150 @@
+안녕하세요! 정임재 입니다.
+반갑습니다.
+저는 지진관련 회사에서 소프트웨어팀에 근무중인 응용프로그램 분야 개발자입니다.
+자바스크립트 경험은 처음입니다만 중급 고급과정도 부지런히 따라가겠습니다.
+많이 알려주셨으면 좋겠네요 ^^;
+
+#불편사항이나 요청사항
+1.SVN client 구축하는 것 이외에 집에서 테스트용 SVN 서버를 구축하는 방법도 간단히 알려주셨으면 좋겠습니다.
+2.바로 직전에 여기 교육과정에서 진행하는 spring 과정을 수강했는데 도움이 될까해서 수강중입니다. 
+3.이번 교육 과정들을 통해 웹개발자로 준비중에 있습니다.
+
+#수업 진도 / 속도 적절성은 어떠한가?
+ 자세한 설명 후 바로 소스코딩해주셔서 진행 방법이나 속도에 적절하다고 생각합니다.
+ 
+#예제 난이도는 어떠한가?
+ 처음이라 앞으로 얼마나 더 심화되어 어려워질지 모르겠지만 
+ 아직까지는 쉬운 설명해주셔서 잘 따라가고 있습니다. 감사합니다.
+ 
+#기타 요청 사항은?
+강사님 소스코드는 번거로우시더라도 매 수업 끝나면 바로바로 update해주시면 쉬는시간에 살펴볼 수 있어서 좋을것 같습니다. 
+===================================================================================
+
+2019.3.2 
+차주 수업 진행방법 관련 개인의견
+-서버단 관련 연동 되는 부분은 사실 욕심으로 보입니다. 
+  즉, Spring이나 다른 과정 수업에서 본인이 원하는 부분을 심도있게 배우는게 오히려 바람직해보입니다.
+-오히려 ajax나 현재 개설과정명에 맞게 javascript와 jQury,ajax까지 다뤄보는게 좋을 것 같습니다.
+-많은 내용을 다루기보다는 하나라도 제대로 배우는게 더 바람직하지 않나 생각합니다.
+-열혈강의 늘 감사합니다^^
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+초보라서 잘 모르겠습니다만, 인터넷 검색해서 적어봅니다;
+
+#html 문제 
+1.html 핵심 element 구성요소 3가지를 기술하세요
+ =>head,title,body
+ 
+2.html의 블럭형식 tag,인라인 형식 tag 각 1가지씩 기술하세요
+ =><div> </div>,   <span></span>
+ 
+3.ul와 ol의 차이를 기술하세요
+ => ol과 ul 실질적인 차이는 "글자"와 "도형"의 차이입니다.
+ 
+4.a href 태그는 어떤 기능을 하는가 기술하세요
+ =>특정 페이지로 이동할 때 사용하는 태그입니다.
+    네이버 홈페이지 이동시 예시입니다.
+  <a href="https://www.naver.com">
+  
+5.img 태그에서 해당 이미지를 지정하는 속성을 기술하세요.
+ =>
+
+6.table에서 td의 속성값 중,rowspan이 의미하는 바가 무엇인가?
+ =>테이블 생성시 셀병합을 하기 위해 쓰이는 태그입니다.
+
+7.form에서 action 속성값의 의미를 기술하시오.
+ => 처리(또는 이동)할 페이지에 대한 정보를 알려준다.
+
+8.form 하위 태그(element) 속성 중, placeholder는 어떠한 경우에 활용되는가?
+ =>  텍스트 필드에 희미한 글자를 보여주는 기능입니다. 보통 사용자들에게 도움말 기능으로 작용합니다.
+  <fieldset>
+          <legend>글 수정시에 필요한 계정을 입력하세요</legend>
+          id : <input type="text" id="idsite" name="idsite" size="20" placeholder="아이디" required>
+          pw : <input type="password" name="pwsite" size="10" maxlength="5" required> 
+  </fieldset>
+
+9.form 하위 태그(element) 중, radio와  checkbox의 차이를 기술하시오
+ => 가장 큰 차이는 중복 선택 가능성 여부입니다.
+    radio는 1개만 선택가능하며, checkbox는 다수의 중복선택 가능함
+
+10. ifram에서  name의 활용 기능을 기술하세요.
+ => a.asp 내의 iframe의 name="ifrm"이라면 a.asp 내부에..
+	<script language="javascript">
+	function doCheck(frm) {
+		frm.target = "ifrm";
+		frm.submit();
+	}
+
+11.css에서 h1 태그의 문자열을 대문자로 변환하는 속성을 속성값을 선언하세요
+  =>uppercase를 사용해서 변경함
+  <!doctype html>
+	<html lang="ko">
+	  <head>
+	    <meta charset="utf-8">
+	    <title>CSS</title>
+	    <style>
+	      .up {text-transform: uppercase;}
+	    </style>
+	  </head>
+	  <body>
+	    <p>Lorem ipsum dolor sit amet.</p>
+	    <p class="up">Lorem ipsum dolor sit amet.</p>
+	  </body>
+	</html>
+
+12.css에서 table, th, td에 border를 합치고, 굵기는 1px, 단일행, 색상은 검정색 설정을 할려고 한다. css를 기술하세요
+ =>
+ 
+13. ul, ol 하위에 있는 li들을 수평으로 정렬시키는 css 속성과 속성값을 기술하세요!
+ =>
+
+14. css 속성 중,  margin과 padding의 차이점을 기술하세요
+ =>
+
+15. 반응형 웹 디자인(responsive web design)이란 무엇을 말하는가?
+ =>
+
+16. css의 선언 형태 3가지를 기술하세요
+ =>
+
+17. table에서 라인별(홀수행/짝수행) 배경색상을 다르게 처리할려고 한다. 코드를 기술하세요
+ =>
+
+18. 해상도별로 나타나는 imge를 다르게 구현할려고 한다. tag와 주요속성값을 기술하세요
+ =>
+
+19. 동일한 image에서 위치별로 다른 link를 구현할려고 한다. tag와 속성값을 기술하세요.
+ =>
+
+20. &nbsp;가 의미하는 것을 기술하시오
+ => 빈칸을 의미함
+
+#javascript 문제
+   <img src="imges/flower.jpg" width="700" hight="500px" alt="flower" title="flower">
+1.외부 파일 호출 처리부분을 기술하세요.
+ => <script src="test.js"></script>
+2.콘솔에 출력하는 처리 내용
+ => 
+3.ul와 ol의 차이를 기술하세요.
+
+잘 모르겠습니다.
+
+

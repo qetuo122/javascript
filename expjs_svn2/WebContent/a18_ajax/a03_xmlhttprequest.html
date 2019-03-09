@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready(function () {
+			$("h1").click(function(){
+				//alert("ajax 호출 시작");
+/* # 비동기 통신을 위한 XMLHttpRequest 객체 
+	1. XMLHttpRequest 객체 생성
+	2. 정의된 서버에 있는 자원을 호출..: page, post/get, 비동기여부
+	3. 요청을 처리했을 때, 서버와의 관계 속에 발생하는 event와 code에 대한 정상 처리 내용 확인.	
+		- 이벤트로 처리..
+	4. 전송.
+ */
+ 			// 1. XMLHttpRequest 객체 생성
+ 				var xhr = new XMLHttpRequest();
+				//alert("생성 여부 확인:"+(xhr!=null) );
+			// 2. 서버에 있는 특정 자원의 호출..
+			//    1) .open("get/post","서버에 있는 자원", 비동기여부..)
+ 				xhr.open("get","z01_data01.txt",true);
+			// 3. 서버에 전송하는 내용과 받는 내용에 따른 코드 확인, 
+			// 		정상적인 요청전달과 데이터를 받았을 때, 처리할 이벤트 선언..
+			//    ajax 이벤트 : readystatechange
+				xhr.onreadystatechange=function(){
+				// 상태값이 변할 때, 처리하는 함수 지정..
+				// 1) readyState 확인.
+				//    0:객체 생성, 1,2 데이터 전송준비, 3. 일부 전송, [4. 데이터 전송 완료] 
+				// 2) http 반응코드 status  
+				//    정상적인 반응코드 범위인 200~299일때, 처리..
+				// 3) 위에 내용이 정상 범위 안에 있을 때, responseText를 통해서 ajax값
+				//    을 가져온다.
+					if( xhr.readyState == 4){
+						if( xhr.status >=200 && xhr.status<300 ){
+							// JSON.parse("json문자열") : js Object 변환..
+							var foods = JSON.parse(xhr.responseText);
+							//alert( foods.length );
+							var show="";
+							$.each(foods, function(idx, item){
+								//alert(idx+":"+item);
+								show+="<h2>"+(idx+1)+":"+item.food+", "+item.price+"</h2>";
+							});
+							$("div").html(show);							
+						}
+					}
+				
+				};
+			// 4.서버에 요청 전송..
+				xhr.send();
+			});
+        });
+    </script>
+</head>
+<body>
+	<h1>Ajax 호출 처리..</h1>
+	<div>비동적으로 온 결과값 출력</div>
+</body>
+</html>

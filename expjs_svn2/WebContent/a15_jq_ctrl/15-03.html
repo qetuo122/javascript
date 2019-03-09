@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">
+	<style type="text/css">
+		.class0{background:blue;}
+		.class1{background:green;}
+		.class2{background:yellow;}
+	</style>
+    <script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready(function () {
+        	// $(배열객체).적용메서드(function(index){ retunr "적용처리"});
+        	// 1. 적용메서드 종류
+        	///   addClass, attr, css, val, html, append,text
+            $('h1').addClass(function (index) {
+                return 'class' + index;
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Header-0</h1>
+    <h1>Header-1</h1>
+    <h1>Header-2</h1>
+</body>
+</html>

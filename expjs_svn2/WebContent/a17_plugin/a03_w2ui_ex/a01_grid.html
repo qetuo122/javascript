@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>w2ui Basic</title>
+    <link rel="stylesheet" href="w2ui-1.2.css" />
+    <style>
+                #wrap {
+            margin: 0 auto;
+            width: 760px;
+            height: 200px;
+        }
+
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="w2ui-1.2.js"></script>
+<script>
+    $(document).ready(function () {
+<<<<<<< .mine
+		
+||||||| .r151
+
+=======
+		// w2grid({옵션:속성값})
+		// show:{} 보일 속성을 지정..
+		// columns:[] 타이틀의 컬럼 속성 지정.
+		// records:[] 실데이터 지정..
+		// onAdd:function(){} 등록시 처리할 이벤트..
+		// onChange:function(){}  값을 변경시 처리할 이벤트.
+		// onDelete:function(){} 값을 삭제시 처리할 이벤트.
+		/*
+		$("#wrap").w2grid({
+			name:"grid",
+			show:{
+				header:true,
+				toolbar:true,
+				columnsHeader:true,
+				toolbarAdd:true
+				
+			},
+			columns:[
+				{field:"name", caption:"도서명", size:"50%",editable:{type:"text"}},
+				{field:"auth", caption:"글쓴이", size:"50%", editable:{type:"text"}}
+				// 컬럼  글쓴이    author, 팀페리스.
+			],
+			records:[
+				{recid:1,name:"타이탄의 도구들",auth:"팀페리스"}, // 데이터 추가..
+				{recid:2,name:"미라클 모닝",auth:"팀페리스"} // 데이터 추가..
+			],
+			onAdd:function(target, eventData){
+				alert("현재 총데이터:"+this.total);
+				this.add({recid:this.total+1,name:"도서명입력",
+					auth:"저자입력"});
+				
+			}
+			
+		});
+		*/
+        $('#wrap').w2grid({
+            name: 'grid',
+            show: {
+                header: true,
+                toolbar: true,
+                footer: true,
+                columnHeaders: true,
+                lineNumbers: true,
+                expandColumn: true,
+                selectColumn: true,
+                emptyRecords: true,
+                toolbarReload: true,
+                toolbarColumns: true,
+                toolbarSearch: true,
+                toolbarAdd: true,
+                toolbarDelete: true,
+                toolbarSave: true
+            },
+
+>>>>>>> .r155
+columns: [
+    { field: 'name', caption: '도서명', size: '40%', editable: { type: 'text' } },
+    { field: 'author', caption: '저자', size: '10%', editable: { type: 'text' } },
+    { field: 'publisher', caption: '출판사', size: '20%', editable: { type: 'text' } },
+    { field: 'price', caption: '가격', size: '10%', editable: { type: 'text' } },
+    { field: 'point', caption: '판매 지수', size: '20%', editable: { type: 'text' } }
+],
+            records: [{
+                recid: 1,
+                name: '모던 웹 디자인을 위한 HTML5 + CSS3 입문',
+                author: '윤인성',
+                publisher: '한빛미디어',
+                price: 30000,
+                point: 30400
+            }, {
+                recid: 2,
+                name: '모던 웹을 위한 JavaScript + jQuery 입문',
+                author: '윤인성',
+                publisher: '한빛미디어',
+                price: 32000,
+                point: 24000
+            }, {
+                recid: 3,
+                name: '모던 웹을 위한 Node.js 프로그래밍 입문',
+                author: '윤인성',
+                publisher: '한빛미디어',
+                price: 24000,
+                point: 12200
+            }],
+            onAdd: function (target, eventData) {
+                this.add({
+                    recid: this.total + 1,
+                    name: '[입력]',
+                    author: '[입력]',
+                    publisher: '[입력]',
+                    price: '[입력]',
+                    point: '[입력]'
+                });
+            }
+,
+            onChange: function (target, eventData) {
+                alert(JSON.stringify(this.getChanged()));
+            }
+,
+            onDelete: function (target, eventData) { }
+        });
+		
+		
+    });
+</script>
+</head>
+<body>
+    <div id="wrap"></div>
+</body>
+</html>

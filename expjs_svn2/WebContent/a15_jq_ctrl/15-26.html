@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">
+    <script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready(function () {
+        	var greets=["좋은 하루입니다!","Good day!","Gut teg tag!!"];
+            $('div').html(function (index) {
+                return '<h1>' + greets[index] + '</h1>';
+            });
+        });
+    </script>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>

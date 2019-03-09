@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 외부 lib를 선언한다. -->
+<script src="https://code.jquery.com/jquery-3.3.1.js" 
+	type="text/javascript"></script>
+<script type="text/javascript">
+// $(document).ready(function() body에 있는 모든 요소들을 
+//  메모리 올린 후에 시작하겠습니다...
+
+	$(document).ready(function(){
+		// $("지정요소객체").html("문자열할당..")
+		$("h1").html("jquery 시작입니다!!!");
+		// 이벤트 처리..: 클릭이나 마우스 핸들러를 통해서 동적인 처리하는 것을 말한다.
+		// $("객체").on( "지정이벤트", 이벤트를 통해서 처리할 내용  );
+		$("h1").on( "click", function(){
+			// 해당 내용을 클릭시, 배경색상 .css("css속성","변경할 속성값")
+			// $(this) : 클릭한 이벤트가 발생한 객체를 지칭..
+			$(this).css("background","pink");
+			$(this).html("클릭되었습니다");
+		});
+	});
+</script>
+</head>
+<body>
+	<h1></h1>
+	<h1></h1>
+	<h1></h1>
+	<h1></h1>
+	<h1></h1>
+	
+</body>
+</html>

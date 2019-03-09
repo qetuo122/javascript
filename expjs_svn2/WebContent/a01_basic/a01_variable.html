@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// 자바스크립트의 기본 data type은 다음과 같다.
+	// - 데이터의 type을 확인하는 메서드 : typeof()
+	// 1. number : 숫자
+	var num01 = 25; // 정수형 데이터 할당.
+	var weight = 75.8; // 실수형 데이터 할당.
+	// document.write("화면에 출력할 내용");
+	document.write("<h2>정수형 데이터:"+num01+"</h2>");
+	// 출력 console.log() : 로그 창에서 출력이 된다. 
+	console.log("실수형 데이터:"+weight); 
+	// 크롬 브라우저에서 f12
+	// 2. boolean : 불린true/false
+	var point = 70;
+	var isPass = point>=60;
+	document.write("<h2>획득점수:"+point+",합격 여부:"+isPass+"</h2>");
+	// 3. string : 문자열.
+	var name = "홍길동";
+	document.write("<h2>이름은 "+name+" 입니다!!</h2>");
+	// 4. function : 함수 - 익명함수(변수형), 선언적함수
+	// 함수 정의
+	var call = function(){
+		alert("호출하셨습니다.!!");
+	};
+	// 정의된 함수의 호출..
+	// call();
+	// 5. object : 객체..: json선언, 함수형객체(생성자객체)
+	var obj = {}; // 객체의 초기화(객체를 생성)
+	//   객체는 속성(일반변수), 메서드(함수)
+	//  객체명.속성 = 속성값;     객체명.메서드 = function(){ 함수할당.};
+	obj.name = "홍길동";
+	obj.age = 25;
+	obj.loc = "서울 신림동";
+	obj.show = function(){
+		document.write("<h2>obj의 메서드 호출</h2>");
+		// this. :현재 객체가 포함된 속성나 메서드 호출시 사용된다.
+		document.write("<h3>이름은 "+this.name+"</h3>");
+		document.write("<h3>나이는 "+this.age+"</h3>");
+		document.write("<h3>사는 곳은 "+this.loc+"</h3>");		
+	}
+	// 객체에서 선언된 메서드 호출..
+	obj.show(); // 객체의 정의된 메서드 호출시   객체명.메서드명();
+/* 	
+  확인 예제..
+  1. 변수 선언 하기..
+  	애완용 동물의 갯수를 변수로 선언
+  	강아지의 갯수는 5, 고양이는 3마리, 앵무새 2마리
+  	다음과 같이 h2 화면에 출력 하세요.
+  	애완용 동물
+  	1. 강아지 @@
+  	2. 고양이 @@
+  	3. 앵무새 @@
+  	총 동물의 수는 @@ 
+*/
+	var puppy = 5;
+	var cat = 3;
+	var bird = 2;
+	var pet = puppy + cat + bird;
+	document.write("<h2>애완용 동물</h2>");
+	document.write("<h2>1. 강아지 "+puppy+"</h2>");
+	document.write("<h2>2. 고양이 "+cat+"</h2>");
+	document.write("<h2>3. 앵무새 "+bird+"</h2>");
+	document.write("<h2>총 동물의 수는 "+pet+" </h2>");	
+	
+/*
+  2. 컴퓨터 공학 점수를 80점을 받았고, 이번에 이 과목이 통과할 점수가
+  	  60 점이다   해당 내용을 변수를 정의하고, 합격여부를 boolean(true/false)
+  	  로 출력하세요.
+  	  ## 출력 형식 h3로 출력..
+  	  컴퓨터 공학점수 : @@@
+  	  통과여부 : @@@
+ */	
+ 	var com_point = 80;
+ 	var isPass2 = com_point>=60;
+ 	document.write("<h3>컴퓨터 공학점수 : "+com_point+"</h3>");
+ 	document.write("<h3>통과여부 : "+isPass2+"</h3>");	
+/*  
+	학생의 이름과 국어점수, 영어점수, 수학점수를 속성으로 하고,
+	해당 내용을 document.write로 출력하는 메서드 showPoint()로 선언하고자
+	한다. 객체를 생성하세요..
+ 	
+ */ 	
+ 	var student ={};
+ 	student.name = "홍길동";
+	student.kor = 70;
+	student.eng = 80;
+	student.math = 90;
+	student.showPoint = function(){
+		document.write("<h2>"+this.name+"의 성적</h2>");
+		document.write("<h3>국어점수:"+this.kor+"</h3>");
+		document.write("<h3>영어점수:"+this.eng+"</h3>");
+		document.write("<h3>수학점수:"+this.math+"</h3>");
+	};
+	// 정의된 메서드 호출 : 객체명.메서드명();
+	student.showPoint();
+	// (6). array : 배열..
+	var fruitCnts = [];
+	fruitCnts[0] = 5;
+	fruitCnts[1] = 7;
+	fruitCnts[2] = 3;
+	var fruNames = ["사과","바나나","딸기"];
+	// 위 정의된 내용을 호출 처리  :  배열명[index번호]
+	document.write("<h2>구매한 과일과 갯수 ("+fruNames.length+"종류)</h2>");
+	document.write("<h3>"+fruNames[0]+":"+fruitCnts[0]+"</h3>");
+	document.write("<h3>"+fruNames[1]+":"+fruitCnts[1]+"</h3>");
+	document.write("<h3>"+fruNames[2]+":"+fruitCnts[2]+"</h3>");
+/* 
+	좋아하는 영화명과 입장료를 3개 배열로 선언하여 출력하세요.
+ */
+ 	var movies=["흐르는 강물처럼","백투더 퓨쳐","가을의 전설"];
+ 	var prices =[7000,8000,10000];
+ 	document.write("<h2>좋아하는 영화 no3</h2>");
+ 	document.write("<h3>"+movies[0]+":"+prices[0]+"</h3>")
+ 	document.write("<h3>"+movies[1]+":"+prices[1]+"</h3>")
+ 	document.write("<h3>"+movies[2]+":"+prices[2]+"</h3>")
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

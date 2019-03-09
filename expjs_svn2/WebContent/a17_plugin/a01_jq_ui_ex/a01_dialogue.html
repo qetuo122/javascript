@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery UI Basic</title>
+    <!-- jquery ui환경 setting..
+    1. css 환경설정.. -->
+    <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.10.3.custom.css" />
+    <style>
+        body { font-size: 62.5% }
+        h1 { text-align:center; }
+        input[type="text"], label {
+            margin-bottom: 12px; padding: .4em; 
+            width: 95%;
+        }
+    </style>
+    <!-- 
+    2. 기본 jquery 설정..
+    3. jquery ui를 통해 지원하는 js 설정..
+     -->
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        $(document).ready(function () {
+			// dialog 처리...: 팝업 화면 처리
+			// 1. $("객체").dialog();
+        	//    1) 하단의 id값이 dialog은  div를 popup 형식으로 로딩 하게 하자..
+        	///   2) 옵션 설정시 .메서명({옵션1:함수(){}, 옵션2:속성값});
+        	//       - 버튼 생성 시  buttons:{버튼이름:function(){클릭시, 처리할내용}}
+        	//    3) 모달 옵션 : 다른 객체들을 접근하지 못하게 처리한다.
+        	//       - modal:true
+        	//    4) 클릭이나 다른 이벤트를 통해서 popup창 로딩 처리..
+/*					 - 기본 옵션 autoOpen :false 자동으로 화면에 로딩을 방지처리..
+				     - 특정한 객체를 클릭시, $("객체").dialog("open")으로  
+				     		해당 다이얼로그 박스가 로딩되게 처리한다.
+ */        	
+ 				$("#open-button").click(function(){
+ 					/// 해당 버튼 클릭시, 다이얼로그 로딩..
+ 					//  객체.dialog("메서드")
+ 					$("#dialog").dialog("open");
+ 					// 메서드의 종류..
+ 					// 1. destory : 메모리 없어지게 처리.
+ 					// 2. disable : 사용 불가능하게 처리.
+ 					// 3. enable : 사용 가능..
+ 					// 4. close : 닫기..
+ 					// 5. isOpen : 열려 있는지 확인..
+ 					// 6. open : 실행하여 로딩 처리..
+ 					
+ 				});
+        		// dialog의 이벤트 지정..
+        		// $(객체).on("이벤트",function(){ 이벤트 발생시, 처리할 내용});
+        		/* 1.이벤트 종류
+        			1) dialogcreate :다이얼로그 생성시, 처리할 내용.
+        			2) dialogbeforeclose : 다이얼로그 닫기 바로 직전
+        			3) dialogopen : 열 때,
+        			4) dialogfocus : 초점으로 맞추었을 때.
+        			5) dialogclose : 닫을 때
+        		*/
+        		$("#dialog").on("dialogcreate",function(){
+        			alert("다이얼로그 생성!!");
+        		});
+ 
+        		$("#dialog").dialog({
+        			autoOpen:false,
+        			modal:true,
+        			buttons:{
+        				// 버튼을 클리시, 처리할 내용 구성..
+        				"클릭1^^":function(){
+        					alert("버튼이 클릭되었습니다.");
+        					
+        				},
+        				// 버튼 3개 submit, reset, cancel 버튼을 클릭시, 해당 내용 출력.
+        				"submit":function(){
+        					alert("submit버튼이 클릭되었습니다.");
+        					// 입력한 데이터 가져오기..
+        					var eventName = $("#event-name").val();
+        					var eventDate = $("#event-date").val();
+        					// jquery string으로 ajax를 통해서 전송 처리..
+        					// 1. ajax 전송시, 처리형식   key1=value1&key2=value2&.....
+        					var sndData = "event="+eventName+"&date="+eventDate+"&";
+        					$("#sendData").append(sndData);
+        					// 전송 후, 해당 내용을 삭제 처리..
+        					$("#event-name").val("");
+        					$("#event-date").val("");
+        					// dialog 창을 메서드명으로 종료 처리한다.
+        					//   close
+        					$("#dialog").dialog("close");
+        					
+        				},
+        				"reset":function(){
+        					alert("reset버튼이 클릭되었습니다.");
+        					// $("#sendData") 에 있는 모든 내용을 삭제처리.
+        					$("#sendData").html("");
+        					// 이벤트 일정과 날짜도 삭제처리..
+        					$("#event-name").val("");
+        					$("#event-date").val("");        					
+        				},
+        				"cancel":function(){
+        					alert("cancel버튼이 클릭되었습니다.");
+        					// 이벤트 일정과 날짜의 내용을 삭제처리
+        					$("#event-name").val("");
+        					$("#event-date").val("");          					
+        					// 창이 닫히는 처리..      		
+        					$("#dialog").dialog("close");
+        				},
+        				
+        				
+        			}
+        			
+        		});
+			// datepicker 처리 : 팝업으로 날짜를 선택하는 ui 제공..
+			// 2. $("객체").datepicker();
+        	//    1) 항목 중에 text 로 event-date를 클릭했을 때, 캘린터 로딩 처리..
+        	//    2) 옵션 : 메서드명({속성:속성값, ...})
+        	//        dateFormat:날짜형식 지정..
+        	//        numberOfMonths : 한번에 로딩한 캘린더의 월의 갯수..
+        	   	$("#event-date").datepicker({
+        	   		dateFormat:'yy년 mm월 dd일',
+        	   		numberOfMonths:3
+        	   	});
+        });
+    </script>
+</head>
+<body>
+	<input type="button" id="open-button" value="창문을 열어주세요!"/>
+	<hr/>
+	<div id="sendData"></div>
+    <div id="dialog" title="jQuery UI dialog">
+        <h1>Hello jQUery UI .. !</h1>
+        <label for="event-name">일정 이름</label>
+        <input id="event-name" type="text" />
+        <label for="event-date">날짜</label>
+        <input id="event-date" type="text" />
+    </div>
+</body>
+</html>

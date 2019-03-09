@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready(function () {
+			$("#v1, #v2").keyup(function(){
+				// $("form").serialize() : form 하위에
+				// 있는 모든 element 객체를 jquery string 형식으로
+				// 변환 처리..
+				//$("div").html($("form").serialize());
+				// $.ajax({속성:속성값, 속성2:속성2값});
+				// 속성들..
+				// 1. type : 전송방식  get/post
+				// 2. data : 서버에 요청할 데이터 설정.
+				//    1) query string : key=val&key2=val2
+				//    2) json 형식 : {key:val,key2:val2,...}
+				//    3) $("form객체").serialize() 
+				// 3. dataType: 서버에서 전송되어 오는 데이터 형식지정.
+				//    1) html, text, json, xml 형식으로 서버에서
+				//    전송되어 오는 데이터 형식을 지정.
+				// 4. success:function(data01){   } - 서버에서 받은
+				//     데이터를 data01이라고 지정하고,  받은 후 처리할 내용을
+				//    해당함수를 통해서 지정한다.
+				// 5. error:function(err){} - 에러가 발생했을 때,
+				//     에러 코드 내용 
+				// 6. url : 요청 서버의 자원
+				$.ajax({
+					type:"get",
+					url:"z04_data4.jsp",
+					data:$("form").serialize(),
+					dataType:"text",
+					success:function(data){
+						// 서버에서 비동적으로 온 데이터 :data
+						$("div").html(data);
+					},
+					error:function(err){
+						console.log(err);
+					}
+					
+				});
+				
+			});
+        });
+    </script>
+</head>
+<body>
+<form>
+값1:<input type="text" name="v1" id="v1"><br>
+값2:<input type="text" name="v2" id="v2"><br>
+</form>
+<div>결과값 처리..</div>
+
+</body>
+</html>

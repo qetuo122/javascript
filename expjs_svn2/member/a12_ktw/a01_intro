@@ -1,0 +1,61 @@
+안녕하세요 김태원 입니다.
+반갑습니다.
+저는 누리앱 웹 프로그래머 입니다.
+자바스크립트 경험은 1번 수강 했습니다.
+
+불편사항이나 요청사항
+1.이번 과정을 통해 자바스크립트를 전체적으로 다시한번 배우려고 합니다.
+
+진도 속도 적절성 ?
+1. 적절한 것 같습니다.
+예제 난이도 ?
+2. 적절한 것 같습니다.
+
+
+#html
+1.html, head, body 
+2.
+3.ul은 순서가 없고 ol은 순서가 있다.
+4.클릭시 해당링크로 이동
+5.src
+6.행 통합
+7.form에 입력된 내용을 action에 설정한 주소로 보냄
+8.
+9.radio는 테두리가 둥글고 checkbox는 테두리가 네모
+10.
+11.
+12.border-collapse : collapse;
+   border : solid 1px black;
+13.float : left;
+14.margin은 외부로 공간을 만들고 padding은 내부로 공간을 만든다
+15.크기에 따라 화면을 바꾼다.
+16.attr
+17.
+18.
+19.
+20.띄어쓰기
+
+#javascript
+1.
+2.console.log();
+3.Person person = new Person();
+4.var names = new Array();
+5.title01 = document.getElementByTagName("h1");
+6.break는 해당되는 내용이 있으면 반복문을 멈추고 continue는 계속 진행한다.
+7.window.parent
+8..text("변경할내용");
+9.<header>
+10.
+11.타입이 숫자인지 검사
+12.person.getName(); person.getAge(); person.getLoc();
+13.car가 객체인지 확인함
+14.d.setDate(d.getDate() + 3);
+15.
+16.list = ["1","2","3"];
+for(var i = 0; i < list.length; i ++){
+	alert(list[i]);
+}
+17.setInterval은 설정한 시간을 간격대로 실행하고 setTimeout은 설정된 시간에 끝낸다.
+18
+19.push는 배열에 데이터를 넣고 pop는 데이터를 제거한다.
+20

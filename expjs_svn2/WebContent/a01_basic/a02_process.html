@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/* 	
+분기문 처리 
+if( boolean 데이터 ){
+ 	조건이 true일 때, 처리할 내용
+}else{
+	조건이 false일 때, 처리할 내용..
+}
+
+
+// 점수를 입력받아서, 60이상일 때, 합격입니다. 그외에는 불합격입니다
+출력 처리..	
+ */
+ // prompt("팝업으로title내용","입력할 default값")
+ 
+	var inputPoint= 76;//prompt("획득한 점수를 입력하세요!!","0");
+	document.write("<h3>입력한 점수는 "+inputPoint+"</h3>");
+	if( inputPoint >= 60 ){
+		document.write("<h3>결과는 합격입니다</h3>");
+	}else{
+		document.write("<h3>결과는 불합격입니다</h3>");
+	}
+/* 	
+for1 : for(초기값;반복조건;증감연산자){
+			반복처리할 내용..
+		}
+ */
+	for(var cnt = 1; cnt<=10; cnt ++){
+		document.write("<h3>카운트 업:"+cnt+"!!</h3>");
+		
+	} 
+/*  
+for2 : for(단위idex in 배열객체){ 배열객체[index] }
+	   for(속성 in 객체){ 객체[속성] == 객체.속성 } 
+ */
+ 	var books=["자바스크립트","자바","파이썬"];
+ 	for(var idx in books){
+ 		document.write("<h3>["+idx+"] "+books[idx]+"</h3>");
+ 	}
+ 	// var 객체명 = {속성명:속성값, 속성명2:속성값2, 속성명3:속성값3,,,};
+ 	var person = {name:"홍길동",age:25,loc:"서울 신림동"};
+ 	for(var pro in person){
+ 		// pro : 속성명,  person[pro] : 속성값  = 객체명.속성명
+ 		document.write("<h3>"+pro+":"+person[pro]+"</h3>");
+ 	}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/*
+	학생이름 배열을 초기에 홍길동 김길동 신길동으로 설정하고,
+	index로 이름 2개 추가하여 출력하고,
+	push를 통해서 이름 1개를 추가하여 출력하고,
+	마지막으로  pop()를 2번 호출하여 데이터 2개를 삭제한 후,
+	화면에 마지막 남은 학생명단을 출력하세요..  
+ */
+	var names=["홍길동","김길동","신길동"];
+	var cnt=0;
+	document.write("<h2>"+(++cnt)+") 현재 배열의 데이터:"+names+"</h2>");
+	// names.length 배열의 크기는 index보다 1적기에  추가 배열을
+	//  선언할 때, 활용할 수 있다.
+	names[names.length]="마길동";
+	names[names.length]="오길동";
+	document.write("<h2>"+(++cnt)+") 현재 배열의 데이터:"+names+"</h2>");
+	names.push("정길동");
+	document.write("<h2>"+(++cnt)+") 현재 배열의 데이터:"+names+"</h2>");
+	document.write("<h2>삭제할 데이터1:"+names.pop()+"</h2>");
+	document.write("<h2>삭제할 데이터2:"+names.pop()+"</h2>");
+	document.write("<h2>"+(++cnt)+") 현재 배열의 데이터:"+names+"</h2>");
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

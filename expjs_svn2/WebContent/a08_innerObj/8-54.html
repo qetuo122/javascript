@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">
+    <script>
+        // 변수를 선언합니다.
+        var object = {
+            name: '윤인성',
+            region: '서울특별시'
+        };
+        // JSON.stringify() : 브라우저(클라이언트)에서 서버로 요청값을 전달할때
+        //                    활용된다.
+        // JSON.parse("객체문자열") :객체로 변환..- 서버에서 받은 데이터를
+        /// 객체화 해서 처리할때 활용된다.
+        var copy = JSON.parse(JSON.stringify(object));
+        // 출력합니다.
+        alert(copy.name + ' : ' + copy.region);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Colorbox</title>
+    <link rel="stylesheet" href="colorbox.css" />
+    <style>
+        #images { overflow: hidden; }
+        .flickr_image { float: left; }
+        .flickr_image>img {
+            width: 200px; height: 120px;
+            float: left;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="jquery.colorbox.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#search_form').submit(function (event) {
+                // Ajax를 수행합니다.
+                // 1. 특정 사이트에서 지원되는 내용을 web으로 받게 처리한다.
+                var url = '';
+                url += 'http://api.flickr.com/services/feeds/photos_public.gne';
+                url += '?jsoncallback=?';
+                
+                // $(this).serialize() : form의 값을 요청=값 형식으로 처리한 것을 말한다.
+                $.getJSON(url, $(this).serialize(), function (data) {
+                	// data는 서버에서 지원하는 실제 데이터를 받아 온다.
+                    // #images를 비워줍니다.
+                    $('#images').empty();
+
+                    // #images에 image를 추가합니다. 
+                    $.each(data.items, function (i, item) {
+                        // img 태그를 생성합니다.
+                        var $image = $('<img />').attr({
+                            'src': item.media.m
+                        });
+
+                        // a 태그를 생성합니다.
+                        $('<a></a>').attr({
+                            'class': 'flickr_image',
+                            'href': item.media.m,
+                            'rel': 'colorbox'
+                        }).html($image).appendTo('#images');
+                    });
+
+                    // Colorbox 플러그인을 사용합니다.
+                    // 받아온 이미지를 .colorbox()메서드를 통해서 처리 한다..
+                    $('a.flickr_image').colorbox();
+                });
+                // 이벤트 전달과 기본 이벤트를 막습니다.
+                return false;
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Flickr Image Album jQuery Colorbox</h1>
+    <form id="search_form">
+        <input type="text" name="tags"/>
+        <input type="hidden" name="format" value="json"/>
+        <input type="submit" value="검색"/>
+    </form>
+    <div id="images">
+
+    </div>
+</body>
+</html>

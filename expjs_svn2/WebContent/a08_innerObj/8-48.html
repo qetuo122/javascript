@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">
+    <script>
+        // 변수를 선언합니다.
+        var array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        // 메서드를 사용합니다.
+        // filter() 해당 객체의 요소값을 return의 기준에 의해서 filtering된
+        // 객체로 만들어 준다.
+        array = array.filter(function (element, index, array) {
+            return element <= 5;
+        });
+        // 출력합니다.
+        alert(array);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

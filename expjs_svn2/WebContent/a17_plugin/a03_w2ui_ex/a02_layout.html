@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>w2ui Basic</title>
+    <link rel="stylesheet" href="w2ui-1.2.css" />
+    <style>
+        #wrap {
+            margin: 0 auto;
+            width: 960px;
+            height: 500px;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="w2ui-1.2.js"></script>
+    <script>
+        $(document).ready(function () {
+			// 레이아웃 플러그인 호출 처리..
+			// 1. name:레이아웃의 기본 이름 설정.
+			// 2. panels:[{},{},{}] - 패널의 위치와 갯수에 따른 설정 처리..
+			//    1) 각 panels 객체의 상세 속성
+			//       type : border 형식의 위치 지정. top, left, right, center, main
+			//       size : 크기 지정,  style: 해당 border의 css 설정.
+			$("#wrap").w2layout({
+				name:"main",
+				panels:[
+					{type:"top", size:150, style:"background:pink"},
+					{type:"bottom", size:150, style:"background:blue"},
+					{type:"left", size:150, style:"background:green"},
+					{type:"right", size:150, style:"background:orange"},
+					{type:"main", size:150, style:"background:yellow"}
+				]
+			});
+			// 이벤트 연결 처리..
+			var cnt=1;
+			
+			var content="";// 누적 문자열 처리..
+			$(window).click(function(){
+				// w2ui.지정된이름속성.toggle():반복적으로 이벤트 처리.
+				w2ui.main.toggle("top");
+				w2ui.main.toggle("left");
+				w2ui.main.toggle("right");
+				w2ui.main.toggle("bottom");
+				// content() 해당 html내용을 출력 처리..
+				// show부분을 누적해서 처리..
+				var show = "<h1>안녕하세요! 이벤트 호출됩니다.["+(++cnt)+"]</h1>";
+				w2ui.main.content("main",(content+=show));
+				
+			});
+			
+			
+			
+        });
+    </script>
+</head>
+<body>
+    <div id="wrap"></div>
+</body>
+</html>

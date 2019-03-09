@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			// 1. h1의 첫번째에 데이터 안녕하세요라고  출력..
+			// 2. h1을 label(화면데이터)  red, orange, yellow, green, blue, 
+			//                        navy, purple
+			//    로 설정..
+			// 3. 배경색상을 설정  .style.backgroudColor
+			var h1 = document.getElementsByTagName("h1");
+			// h1의 첫번째에 데이터 할당.
+			//h1[0].innerHTML = "안녕하세요..";
+			
+			//alert("색상 설정");
+			var colors = ["red","orange","yellow","green","blue","navy","purple"];
+			// h1.length의 갯수만큼 배열을 loop
+			for(var idx=0;idx<h1.length;idx++){
+				// h1[0].innerHTML = colors[0]
+				//   <h1>red</h1> 
+				h1[idx].innerHTML = colors[idx];
+				// h1[0].style.backgroundColor = colors[0] // "red"
+				//   <h1 style="background-color:red">red</h1>
+				h1[idx].style.backgroundColor = colors[idx];; 
+			}
+			
+		}
+	
+	</script>
+</head>
+<body>
+	<h1></h1>
+	<h1></h1>
+	<h1></h1>
+	<h1></h1>
+	<h1></h1>
+	<h1></h1>
+	<h1></h1>
+</body>
+</html>

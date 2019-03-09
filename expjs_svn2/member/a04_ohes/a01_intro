@@ -1,0 +1,83 @@
+안녕하세요 오은성 입니다
+반갑습니다
+저는 아이엔씨 소프트웨어 자료구조 SAP 강사 입니다
+자바스크립트는 2000년대 초기에 해보았습니다
+이번 과정에서 자바스크립트의 기본 문법 이나 객체 보다는 jQuery 과정을 중점적으로 듣고 싶습니다.
+잘부탁드립니다
+# html
+ 1. <html><head></head><body></body></html>
+ 2. 블럭형식:<h1> 인라인:
+ 3.ul: 순서가 없는 리스트 태그 ol:순서가 있는 리스트 태그
+ 4.<a href="파일.html>파일로이동</a>
+   <a href="이동할 사이트">네이버</a>
+   <a href="mailto:ohes74@hanmail.net">이메일</a>
+   <a name="#처음">
+   <a href="처음">처음으로 이동</a>
+  5.<img src="images/오은성.jpg">
+  6.열을 합치는 명령어
+  7.다른파일로 이동
+  8.
+  9.radio:여러개중 하나밖에 선택할 수없다
+    checkbox : 여러개중 여려개를 다 선택할 수 있다.
+  10 웹페이지안에 name에서 지정한 파일을 삽입하는 기능
+  11.<style type="text/css">
+	p {text-decoration:bold}
+	1px solid
+  12. <style type="text/css"> 
+       table {border-color:black; width:500px; 
+         font-size:20px; font-weight:bold 1px; text-align:center;}
+       #b1 {left:50px; table-layout:auto;}           
+       #b2 {left:400px; table-layout:fixed;}           
+       p {display : table;}
+     </style>
+   13. 
+   14. margin: 브라우저 윗여백
+       padding: 사이여백
+   15.  
+   16. 인라인 스타일 시트 / 선언 / 파일링크
+   <p style ="color:blue">오은성</p>
+   -----------------------------------------
+   <style type="text/css">
+  body {font-size:20pt}
+  h1 {font-family:궁서체; font-style:italic; color:red; background:yellow}
+  p {font-family:궁서체; color:blue}
+  </style>
+  ---파일링크------------------
+   <link rel="stylesheet" type="text/css" href="sheet.css">
+  </style>
+  17.
+  if(i%2==0)
+  <tr bgcolor=red><td></td></tr>
+  else
+  <tr bgcolor=blue><td></td></tr>
+  18.
+  19.
+  20. html의 공백태그 
+  
+  #javascript
+  1.<script src ="ex1.js"></script>
+  2.<script languge="javascript"
+  	document.write("안녕하세요");
+  	</script>
+  3.var
+  4. var a = new number();
+   number[0]=1;
+   number[1]=2;
+  5.
+  6.break:조건에 만족하면 끝낸다
+    continue: 조건에 만족하면 계속한다.
+   7.alert
+   8.
+   9.<frameset rows="30%,*">
+   		<frame src="top.html">
+   		<frame src="bottom.html">
+     </frameset>
+   10.
+   11.숫자가 아닌 문자가 포함되었는지 확인 문자가 포함되어있으면 true
+   12.
+   
+   ------------------------------------
+   11.진도속성 적절성? : 좋습니다
+   13.예제난위도 ?  좋습니다
+   15 기타요청사항 ? 감사합니다 오늘 하루도 수고하셨습니다
+   

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">
+    <script>
+        // 변수를 생성합니다.
+        //var date = new Date(1991, 11, 9);
+        var date = new Date();
+        document.write("<h1>"+date+"</h1>");
+        // toLocaleString() 날짜의 GMT 기준에 맞게 해당 지역의 출력 형식에 따라 처리.
+        document.write("<h1>"+date.toLocaleString()+"</h1>");
+        // toISOString() : ISO8601의 표준 날짜 출력 형식에 의해 처리..
+        document.write("<h1>"+date.toISOString()+"</h1>");
+        // 출력합니다.
+        var output = '';
+        output += '★toDateString: ' + date.toDateString() + '<br>';
+        output += '★toGMTString: ' + date.toGMTString() + '<br>';
+        output += '★toLocaleDateString: ' + date.toLocaleDateString() + '<br>';
+        output += '★toLocaleString: ' + date.toLocaleString() + '<br>';
+        output += '★toLocaleTimeString: ' + date.toLocaleTimeString() + '<br>';
+        output += '★toString: ' + date.toString() + '<br>';
+        output += '★toTimeString: ' + date.toTimeString() + '<br>';
+        output += '★toUTCString: ' + date.toUTCString() + '<br>';
+        document.write(output);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

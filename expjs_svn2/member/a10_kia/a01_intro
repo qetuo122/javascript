@@ -1,0 +1,82 @@
+
+
+안녕하세요! 김인애 입니다
+반갑습니다.....
+
+
+
+저는 케어랩스... 개발자 입니다.
+자바스크립트 경험은 jquery 가져다 쓸줄만 아는 정도입니다.
+
+
+불편사항 요청사항
+이번 과정을 통해 웹 프론트 기초를 쌓고자 합니다.
+
+
+
+
+html 
+1. body html 
+2. 블럭 <di> 인라인 <span>
+3. list를 구성하는 요소로
+   ul은 unorderlist 약자.., 숫자 표기 안됨
+   ol order list 약자, 숫자 표기
+4. a href="#id" / 해당하는 아이디를 가진 태그로 이동
+5. src
+6. 열 넓이 
+7. form submit시 action에 지정된 경로로 폼 제출
+8. default 텍스트 지정
+9. radio input 요소 한개만 선택
+   checkbox    요소 여러개 선택
+10. 
+11. 
+12. bordercollapse ..? border 1px solid #000;
+13. text-align:center;
+14. padding 엘리먼트 내부 값
+    margin 엘리먼트 사이 간격 ...
+15. 브라우저 or 모바일 창크기에 맞게 유동적으로 화면이 보이는 것
+16. 
+17. 
+18. 
+19. 
+20. 띄어쓰기, 스페이스바..
+
+
+
+javascript
+1.
+2. console.log("내용");
+3. var person ="";
+4. var names[] ={};
+5. 
+6. break    반복문 종료 
+   continue 건너뛰고 반복문 재실행 
+7. 
+8. 
+9.
+10.
+11. 객체 정의 되있는지 확인
+12.
+13. car의 object 상속 여부
+14. 
+15.
+16. var name[] ={"블라", "블라", "블라"}
+	for( name in str){
+		alert(str);
+	}
+17. setInterval 지정시간마다 함수 호출
+    setTimeOut 함수 한번만 호출...
+18.     
+19. push 배열값 추가 
+    pop  배열값 제거
+20. 문서객체모델
+
+
+실습문제
+input 
+    
+
+
+
+
+

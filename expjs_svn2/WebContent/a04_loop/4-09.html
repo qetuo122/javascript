@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">
+    <script>
+        // 변수를 선언합니다.
+        var value = 10;
+        // do while 반복문
+        do {
+        	// 조건 상관 없이 반복 프로세스를 일단은 1번 처리하고,
+        	// 하단에 while() 반복조건을 확인 한 후 처리할 때.
+            //alert(value + '번째 반복문');
+            value++;
+        } while (value < 5)
+/*
+ 	메뉴 주문 받기..
+ 		주문 받습니다.
+ 		계속하시겠습니까?
+ */
+ 		do{
+ 			var menu = prompt("주문할 메뉴?","짜장면");
+ 			document.write("<h2>주문하시는 메뉴:"+ menu+"</h2>");
+ 			var isConinue = confirm("주문을 계속하시겠습니까?");
+ 		}while( isConinue );
+        document.write("<h3>주문완료</h3>");
+        	
+        	
+        	
+    </script> 
+</head>
+<body>
+
+</body>
+</html>

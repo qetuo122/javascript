@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">
+    <script>
+        // 변수를 선언합니다.
+        var input = Number(prompt('숫자를 입력하세요.', '숫자'));
+        
+        alert( "입력한 데이터:"+input);
+        // NaN (Not a Number) : 숫자형 문자열이 아닐 때,
+        //    Number()를 통해서 숫자형으로 변환할때, 발생하는 에러..
+        // 조건문
+        // input % 2 
+        // 0 --> 0
+        // 1 --> 1
+        // 2 --> 0
+        // 3 --> 1
+        // 숫자가 나머지의 범위 0~1로 반복하여 처리된다.
+        
+        switch (input % 2) {
+            case 0:
+                alert('짝수입니다.');
+                break;
+            case 1:
+                alert('홀수입니다.');
+                break;
+            default:
+                alert('숫자가 아닙니다.');
+                break;
+        }
+ /*
+ 	switch( 데이터 ){
+ 		case 특정데이터1일때:
+ 				처리할 프로세스  break;
+ 		case 특정데이터2일때:
+ 				처리할 프로세스 break;
+ 		default: 위에 case로 지정된 데이터가 아닐 때 처리할 내용.. 
+ 	}
+ 
+ 
+ */       
+    </script>
+</head>
+<body>
+
+</body>
+</html>

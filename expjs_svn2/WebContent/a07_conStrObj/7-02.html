@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">
+    <script>
+    	// 생성자 함수  : 객체의 틀을 만들다.
+    	// function 대문자로 시작(){}
+        function Student(name,age) {
+        	// this.속성 = 할당데이터
+        	this.name = name;
+        	this.age = age;
+        	this.show=function(){
+        		document.write("name:"+this.name+"<br>");
+        		document.write("age:"+this.age+"<br>");
+        	}
+        }
+     
+        // var 참조변수 = new 생성자객체(입력값)
+        var student1 = new Student("홍길동", 25);
+        student1.show();
+        var student2 = new Student("신길동", 30);
+        student2.show();
+        
+        
+        
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

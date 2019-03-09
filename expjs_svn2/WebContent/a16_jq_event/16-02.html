@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">
+    <script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            // 이벤트를 연결합니다.
+            // $(객체).on('인벤트',function(){이벤트를 통해 처리할 함수}))
+            $('h1').on('click', function () {
+            	// $(this) : 다수의 h1 중에 클릭한  h1을 지정..
+                $(this).html(function (index, html) {
+                    return html + '+';
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Header-0</h1>
+    <h1>Header-1</h1>
+    <h1>Header-2</h1>
+</body>
+</html>

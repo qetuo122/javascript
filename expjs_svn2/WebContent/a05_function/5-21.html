@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">
+    <script>
+    	// 함수선언.
+        function pythagoras(width, height) {
+        	// 이 함수만이 쓰이는 함수를 선언하여
+        	// 외부에서는 이 함수를 호출해서 사용 못 하게..
+        	///  인켑슐레이션화 하여 처리하게 한다.
+            function square(x) {
+                return x * x;
+            }
+        	
+            return Math.sqrt(square(width) + square(height));
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

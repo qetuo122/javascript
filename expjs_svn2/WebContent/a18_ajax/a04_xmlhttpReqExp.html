@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready(function () {
+        	$("h1").click(function(){
+        		
+        		var xhr = new XMLHttpRequest();
+     			xhr.open("get","z02_data2.txt",true);
+    			xhr.onreadystatechange=function(){
+    				if( xhr.readyState == 4){
+    					if( xhr.status >=200 && xhr.status<300 ){
+    						var person = JSON.parse(xhr.responseText);
+    						// json 데이터가 객체이므로 객체명.속성
+    						var show="";
+   							show+="<h2>이름:"+person.name+"</h2>";
+   							show+="<h2>나이:"+person.age+"</h2>";
+   							show+="<h2>사는곳:"+person.address+"</h2>";
+    						$("p").html(show);							
+    					}
+    				}
+    			};
+    			xhr.send();
+    			
+        	});
+
+		});			
+    </script>
+</head>
+<body>
+	<h1>개인 정보 호출..</h1>
+	<p>출력할 내용</p>
+</body>
+</html>

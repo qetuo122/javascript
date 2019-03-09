@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">
+    <script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('h1').each(function () {
+            	// $(this).is('속성') : 해당 속성일 때, boolean
+            	// $(this) : 상위에 배열에서 .each, for를 통해 단위 객체를 지정할 때.
+                if ($(this).is('.select')) {
+                    $(this).css('background', 'orange');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1 class="select">Header-0</h1>
+    <h1>Header-1</h1>
+    <h1 class="select">Header-2</h1>
+</body>
+</html>

@@ -1,0 +1,59 @@
+안녕하세요! 한상준입니다.
+반갑습니다.
+저는 누리앱 프로그래머/웹개발자 입니다.
+자바스크립트 경험은 프로젝트 한개 진행 해봤습니다.
+
+불편사항이나 요청사항
+1. 실습위주로 많은 예제하고 싶어요.
+
+#html
+1. mark up language , css, javascript
+2. span,div
+3. ?
+4. 웹 링크
+5. src
+6. row 합치기
+7. data 전송방식 (get, post)
+8. text에 글쓰기전에 흐릿하게 글씨를 가이드라인으로 보여주는것
+9. 여러개를 체크할수있는지 아닌지
+10. ?
+11. ?
+12. table th td {solid 1px black}
+13. ?, inline
+14. margin : 해당 속성의 바깥 부분 여백에 관여 , padding : 해당속성 내부의 여백에 관여
+15. break point 마다 layout이 변경되어 휴대용기기에서도 웹페이지를 동적으로 볼수있음.
+16. 문제를 이해못하겠음.
+17. ?
+18. break point
+19. ?
+20. 한칸 띄어쓰기
+
+#javascript
+1. ?
+2. console.log();
+3. var person;
+4. var []names;
+5. var title01; $('h1').val() = title01;
+6. break : 해당 반복문을 빠저나옴 , continue : 계속 진행
+7. window
+8. $("element").text("변경할 내용");
+9. ?
+10.?
+11. number type인지 아닌지.
+12. $("person").attr('name'); $("person").attr("age"); $("person").attr('loc');
+13. car가 object의 자식객체인가
+14. ?
+15. 
+16. var name = ["홍길동","이순신","정약용"]; for(name in name){alert(name)}
+17. setInterval은 반복 , setTimeout은 타이머
+18. document.html("<p>this is a paragraph</p>");
+19. push 넣는거 , pop 넣은 순서대로 빼는거
+20. 해당 웹페이지 전체
+
+
+진도 속도 적정?
+	- 네
+예제 난이도 ?
+	- 조금 올려도 괜찬을 꺼같아요.
+기타요청사항?
+	- x

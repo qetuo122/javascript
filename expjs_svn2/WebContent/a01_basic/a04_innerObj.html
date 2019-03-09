@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!--  ctrl + enter -->
+<script type="text/javascript">
+/* 
+Math 내장객체의 메서드들..
+1. Math.floor() : 소숫점이하를 내림처리
+2. Math.ceil() : 소숫점이하를 올림처리.
+3. Math.random() : 임의의 숫자를 0.0 ~ 1.0 사이에 나오게 한다.
+	0.0 <= Math.random() < 1.0
+	특정한 경우의 숫자나 임의의 문자를 처리할 때,
+	Math.floor( Math.random()*경우의 수 ) + 시작하는 수
+ */
+	document.write("<h3>25.7을 내림처리:"+Math.floor(25.7)+"</h3>");
+	document.write("<h3>25.2을 올림처리:"+Math.ceil(25.2)+"</h3>");
+	
+	document.write("<h3>Math.random()의 수:"+Math.random()+"</h3>");
+	// 주사위 1~6까지 임의로 나오게 처리..
+	var ranNum = Math.floor(Math.random()*6)+1;
+	document.write("<h3>주사위의 임의의 수:"+ranNum+"</h3>");
+	// 가위 바위 보가 임의로 나오게 처리..
+	var games = ["가위","바위","보"];
+	var ranIdx = Math.floor( Math.random()*games.length );
+	document.write("<h3>가위! 바위! 보! : 임의로 나온 내용 - "
+			+ games[ranIdx] + "</h3>" );
+	
+
+ 
+ 
+</script>
+</head>
+<body>
+
+</body>
+</html>

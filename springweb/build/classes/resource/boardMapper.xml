@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+	<!-- 
+	// namespace : springweb.a03_mvc.a03_dao.B01_BoardDao
+	// ArrayList<Board> list(BoardSch sch)
+	// id : list
+	// resultMap = "boardMap"
+	 -->
+<mapper namespace="springweb.a03_mvc.a03_dao.B01_BoardDao">
+	<resultMap type="board" id="boardMap"/>
+	<resultMap type="String" id="fnMap" />
+	<!--  int tot(BoardSch sch) -->
+	<select id="tot" resultType="int" parameterType="bsch">
+		SELECT count(*)
+		FROM board a
+		WHERE 1=1  
+		<if test="title !=null and title != ''">
+			AND title LIKE '%'|| #{title} ||'%'
+		</if>
+		<if test="writer !=null and writer != ''">
+			AND writer LIKE '%'|| #{writer} ||'%'
+		</if>			
+	</select>
+	
+	
+	<select id="list" resultMap="boardMap" parameterType="bsch" >
+		SELECT * FROM(
+			SELECT ROWNUM num, a.*, level
+			FROM board a
+			WHERE 1=1  
+			<if test="title !=null and title != ''">
+				AND title LIKE '%'|| #{title} ||'%'
+			</if>
+			<if test="writer !=null and writer != ''">
+				AND writer LIKE '%'|| #{writer} ||'%'
+			</if>		
+			START WITH refno = 0
+			CONNECT BY PRIOR NO = REFNO
+			ORDER siblings BY NO DESC )	
+		WHERE num BETWEEN #{start} AND #{end}		
+		
+		
+	</select>
+<!--  
+	// id : insBoard
+	// resultType, resultMap (return Type이 있을 때) (X)
+	// parameterType : board
+	NO refno title content writer readcnt credte uptdte etc
+	board.getTitle()
+ -->	
+	<insert id="insBoard" parameterType="board">
+		insert into board values( board_seq.nextval,#{refno},#{title},
+			#{content},#{writer},0,sysdate,sysdate,#{etc} )
+	</insert>
+	<!--  파일 정보 등록 
+	insReport(String fname)
+	CREATE TABLE boardfile(
+	NO NUMBER,
+	fname varchar2(500),
+	credte DATE,
+	etc varchar2(500)
+);
+board_seq.currval : 게시판 기본 정보가 등록된 후, seq 번호로 파일 정보를 등록한다.
+	-->
+	<insert id="insReport" parameterType="String">
+		insert into boardfile values( board_seq.currval, #{value},
+			sysdate,'')
+	</insert>
+<!-- 
+getFiles(int no)
+ -->	
+	<select id="getFiles" resultMap="fnMap" parameterType="int">
+		select fname 
+		from boardfile
+		where no = #{value}
+	</select>
+	
+	<!--  Board getBoard(int no) -->
+	<select id="getBoard" resultType="board"
+		 parameterType="int">
+		select *
+		from board
+		where no = #{no}
+	</select>
+	<!--  uptReadCnt(int no) -->
+	<update id="uptReadCnt" parameterType="int">
+		update board
+			set readcnt=readcnt+1
+		where no = #{no}	
+	</update>
+<!-- 
+	public void updateBoard(Board upt);
+	public void deleteBoard(int no);
+ -->	
+	<update id="updateBoard" parameterType="board">
+		update board
+			set title=#{title},
+			    writer=#{writer},
+			    uptdte=sysdate,
+			    etc=#{etc},
+			    content=#{content}
+		where no = #{no}	
+	</update>	
+	<delete id="deleteBoard" parameterType="int">
+		delete from board
+		where no = #{no}
+	</delete>
+	
+	
+	
+	
+</mapper>	

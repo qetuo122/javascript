@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">
+    <script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            // 변수를 선언합니다.
+            var array = [
+                { name: 'Hanbit Media', link: 'http://hanbit.co.kr' },
+                { name: 'Naver', link: 'http://naver.com' },
+                { name: 'Daum', link: 'http://daum.net' }
+            ];
+            // $.each() 메서드를 사용합니다.
+            // $("객체배열").each(function(index, 단위객체){}):
+            // $.each(배열객체, function(index, 단위객체){});
+            
+            $.each(array, function (index, item) {
+            	alert(index+":"+item.name);
+            });
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

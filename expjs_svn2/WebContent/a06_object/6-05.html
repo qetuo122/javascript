@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">
+    <script>
+        var object = {
+            number: 273,
+            string: 'RintIanTta',
+            boolean: true,
+            array: [52, 273, 103, 32],
+            method: function ( inNum) {
+            	// 현재 가지고 있는 객체의 특정 속성 호출 this.
+            	alert(this.number+":"+inNum);
+            	return this.number + inNum;
+            }
+        };
+        // 객체의 속성 호출..
+        alert("object.number:"+object.number);
+        // 객체의 메서드 호출..
+        var sum = object.method(30);// 넘기는 데이터 30
+        alert("return한 sum 데이터:"+sum);
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

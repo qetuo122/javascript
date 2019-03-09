@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">
+    <script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready(function () {
+        	// h1의 전체 배경색상은 orange로 선언하고, 그중에서,
+        	//   index로 짝수인 것은 글자 색상을 빨강으로 처리한다.
+            $('h1').css('background', 'orange').filter(':even').css('color', 'red');
+        });
+    </script>
+</head>
+<body>
+    <h1>Header-0</h1>
+    <h1>Header-1</h1>
+    <h1>Header-2</h1>
+</body>
+</html>

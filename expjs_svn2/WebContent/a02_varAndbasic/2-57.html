@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">
+    <script>
+        {
+            // 스코프 A(블럭 안에 지역변수)
+            var variable = 273;
+        }
+        {
+            // 스코프 B
+            alert("다른 블럭에서"+variable);
+        }
+        // 전역 스코프
+        alert("전역변수:"+variable);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
